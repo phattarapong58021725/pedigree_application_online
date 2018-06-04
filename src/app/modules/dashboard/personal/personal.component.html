@@ -1,0 +1,8 @@
+<h1>Peronale</h1>  
+<div *ngIf="personale">
+
+  <ul>
+    <li *ngFor="let personal of personale.data"> {{personal.name}} {{personal.subname}} </li>
+  </ul>
+
+</div>

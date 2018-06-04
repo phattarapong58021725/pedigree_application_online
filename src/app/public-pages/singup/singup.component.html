@@ -1,0 +1,43 @@
+<div class="singup-container">
+        <h1 class="text-center">Sing Up</h1>
+        
+        <mat-form-field class="example-full-width">
+                <input  (keyup)="onChange($event)" type="text" name="name"  matInput placeholder="Name" [formControl]="nameFormControl"
+                       [errorStateMatcher]="matcher">
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                  Name is <strong>required</strong>
+                </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+                <input  (keyup)="onChange($event)" type="text" name="subname"  matInput placeholder="Subname" [formControl]="subnameFormControl"
+                       [errorStateMatcher]="matcher">
+                <mat-error *ngIf="subnameFormControl.hasError('required')">
+                  Subname is <strong>required</strong>
+                </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input  (keyup)="onChange($event)" type="email" name="email"  matInput placeholder="Email" [formControl]="emailFormControl"
+                 [errorStateMatcher]="matcher">
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+    
+        <mat-form-field class="example-full-width">
+          <input  minlength="4" (keyup)="onChange($event)" type="password" name="password" matInput placeholder="Password" [formControl]="passwordFormControl"
+                 [errorStateMatcher]="matcher">
+            <mat-error *ngIf="passwordFormControl.hasError('required') ">
+                Password is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <div class="button-row text-right">
+            <button (click)="singUp()" mat-raised-button color="success">SingUp</button>
+        </div>
+        <p>Or go to login page, <a href="/login" mat-raised-butto>Login</a> </p>
+        <app-footer></app-footer>
+    </div>

@@ -1,0 +1,43 @@
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+
+  .card-total {
+    width: 150px;
+    margin: auto;
+    height: 150px;
+    background: red;
+    border-radius: 87px;
+    position: relative;
+    margin-top: 16px;
+
+    span{
+        position: absolute;
+        top: 56px;
+        left: 4px;
+        font-size: 22px;
+        color: white;
+    }
+  }
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+.progres-dashboard {
+    height: 3px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 22px;
+}

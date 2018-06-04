@@ -1,0 +1,34 @@
+
+.sidenav {
+    width: 200px;
+    box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+.sidenav-container {
+    height: 100%;
+    .profile{
+        div{
+            width: 41px;
+            border-radius: 93px;
+            float: left;
+            margin-right: 5px;
+            img{
+                width: 100%;
+                border-radius: 93px;
+            }
+        }
+        span{
+            margin: 6px 11px;
+            float: right;
+        }
+    }
+}
+
+.spinner{
+    position: absolute;
+    width: 200px;
+    margin: auto;
+    top: 40%;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+}

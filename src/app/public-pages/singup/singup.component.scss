@@ -1,0 +1,29 @@
+
+.singup-container{
+    padding: 89px;
+    max-width: 507px;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #009688cf;
+    box-shadow: 0px 6px 22px 7px #37ac9c;
+    margin-top: 63px;
+    > *{
+        width: 100%;
+    }
+    
+    .mat-success{
+        background: #009688;
+        color: white;
+    }
+}
+
+.text-right{
+    text-align: right;
+}
+.text-left{
+    text-align: left;
+}
+.text-center{
+    text-align: center;
+}
