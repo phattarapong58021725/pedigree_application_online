@@ -1,0 +1,25 @@
+<div class="derder">
+    <div *ngIf="dataSource && dataView=='card';else  dataView=='card' && progressload">
+        <mat-grid-list cols="2">
+            <mat-grid-tile [colspan]="1" [rowspan]="0.4" *ngFor="let address of dataSource.filteredData">
+                <mat-card-content>
+                    <mat-card class="rerer">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>ชื่อ</strong> : {{address.membernameTH}}</p>
+                                <p><strong>ที่อยู่ฟาร์ม</strong> : {{address.member_address}}</p>
+                                <p><strong>ที่อยู่จัดส่ง</strong> : {{address.shippingaddress}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>เบอร์โทร</strong> : {{address.member_tel}}</p>
+                                <p><strong>ชื่อฟาร์ม</strong> : {{address.farm_Name}}</p>
+                                <p><strong>โลโก้ฟาร์ม</strong> : {{address.farm_Logo}}</p>
+                            </div>
+                        </div>
+                        <button class="pull-right" mat-raised-button color="warn" (click)="deleteAddressmamber(address.id)">ลบออก</button>
+                    </mat-card>
+                </mat-card-content>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>

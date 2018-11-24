@@ -1,0 +1,39 @@
+<div *ngIf="dataSource && dataView=='table';else dataView=='table' && progressload" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- Progress Column -->
+      <ng-container matColumnDef="inchatadmin">
+        <th mat-header-cell *matHeaderCellDef> แชท </th>
+        <td mat-cell *matCellDef="let row"> {{row.inchatadmin}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="datechatadmin">
+        <th mat-header-cell *matHeaderCellDef> วันที่ </th>
+        <td mat-cell *matCellDef="let row"> {{row.datechatadmin}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button matTooltip="ลบออก" (click)="deletechatadmin(row.id)">
+            <mat-icon color="warn">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div *ngIf="dataSource && dataView=='card';else  dataView=='card' && progressload">
+    <mat-list>
+      <mat-list-item *ngFor="let chatadmin of dataSource.filteredData">
+        <mat-card class="chat-card">
+          <p>{{chatadmin.inchatadmin}}</p>
+          <p>{{chatadmin.datechatadmin | date: 'dd-MMM-yyyy' }}</p>
+        </mat-card>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <ng-template #progressload>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </ng-template>
+  

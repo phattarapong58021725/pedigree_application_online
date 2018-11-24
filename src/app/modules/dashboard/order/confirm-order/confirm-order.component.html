@@ -1,0 +1,157 @@
+<mat-card style="margin-top: 75px">
+    <mat-card-title class="headd text-center" style="font-size:35px;">
+        รับออเดอร์สั่งทำใบพันธุ์ประวัติโค
+    </mat-card-title>
+    <div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <mat-card-title class="headd2 text-center" style="font-size:35px;">
+                รายการสั่งทำ
+            </mat-card-title>
+            <div *ngIf="dataSource && dataView=='table';else dataView=='table' && progressload" class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" matSort>
+                    <!-- ID Column -->
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> ลำดับที่ </th>
+                        <td mat-cell *matCellDef="let row;let key = index"> {{key}} </td>
+                    </ng-container>
+
+                    <!-- Progress Column -->
+                    <ng-container matColumnDef="breed">
+                        <th mat-header-cell *matHeaderCellDef> พันธุ์โค </th>
+                        <td mat-cell *matCellDef="let row"> {{row.breed}} </td>
+                    </ng-container>
+
+                    <!-- IMport Column -->
+                    <ng-container matColumnDef="cattle_Name">
+                        <th mat-header-cell *matHeaderCellDef> ชื่อโค </th>
+                        <td mat-cell *matCellDef="let row"> {{row.cattle_Name}} </td>
+                    </ng-container>
+
+                    <!-- IMport Column -->
+                    <ng-container matColumnDef="membernameTH">
+                        <th mat-header-cell *matHeaderCellDef> ชื่อผู้สั่งทำ </th>
+                        <td mat-cell *matCellDef="let row"> {{row.membernameTH}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="date_of_delivery">
+                        <th mat-header-cell *matHeaderCellDef> วันที่สั่งทำ </th>
+                        <td mat-cell *matCellDef="let row"> {{row.date_of_delivery | date: 'dd-MMM-yyyy'}} </td>
+                    </ng-container>
+
+                    <!-- Action-->
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef> การดำเนินการ </th>
+                        <td mat-cell *matCellDef="let row">
+                            <button mat-raised-button color="accent" (click)="openssDialog(row)">
+                                เช็ครายละเอียด
+                            </button>
+                            &nbsp;
+                            <button mat-raised-button color="warn" (click)="opensDialog(row)">
+                                ปฎิเสธการสั่งทำ
+                            </button>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="selects">
+                        <th mat-header-cell *matHeaderCellDef>เลือกทั้งหมด &nbsp;<mat-checkbox></mat-checkbox>
+                        </th>
+                        <td mat-cell *matCellDef="let row">
+                            <mat-checkbox></mat-checkbox>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+            <button class="subut" mat-raised-button color="primary">ยืนยัน</button>
+        </div>
+        <div class="col-md-6">
+            <mat-card-title class="headd3 text-center" style="font-size:35px;">
+                รายการที่อนุมัติ
+            </mat-card-title>
+            <div *ngIf="dataSource && dataView=='table';else dataView=='table' && progressload" class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" matSort>
+                    <!-- ID Column -->
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> ลำดับที่ </th>
+                        <td mat-cell *matCellDef="let row;let key = index"> {{key}} </td>
+                    </ng-container>
+
+                    <!-- Progress Column -->
+                    <ng-container matColumnDef="breed">
+                        <th mat-header-cell *matHeaderCellDef> พันธุ์โค </th>
+                        <td mat-cell *matCellDef="let row"> {{row.breed}} </td>
+                    </ng-container>
+
+                    <!-- IMport Column -->
+                    <ng-container matColumnDef="cattle_Name">
+                        <th mat-header-cell *matHeaderCellDef> ชื่อโค </th>
+                        <td mat-cell *matCellDef="let row"> {{row.cattle_Name}} </td>
+                    </ng-container>
+
+                    <!-- IMport Column -->
+                    <ng-container matColumnDef="membernameTH">
+                        <th mat-header-cell *matHeaderCellDef> ชื่อผู้สั่งทำ </th>
+                        <td mat-cell *matCellDef="let row"> {{row.membernameTH}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="date_of_delivery">
+                        <th mat-header-cell *matHeaderCellDef> วันที่สั่งทำ </th>
+                        <td mat-cell *matCellDef="let row"> {{row.date_of_delivery | date: 'dd-MMM-yyyy'}} </td>
+                    </ng-container>
+
+
+                    <!-- Action-->
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef> การดำเนินการ </th>
+                        <td mat-cell *matCellDef="let row">
+                            <button mat-raised-button color="accent" (click)="openDialog(row)">
+                                อัพเดทสถานะการสั่งทำ
+                            </button>
+                            <!-- &nbsp;
+                <button mat-raised-button color="warn" (click)="deleteOrder(row.id)">
+                    ยกเลิกการสั่งทำ
+                </button> -->
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="selects">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let row"></td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="dataSource && dataView=='card';else  dataView=='card' && progressload">
+        <mat-grid-list cols="4" rowHeight="3:2">
+            <mat-grid-tile [colspan]="1" [rowspan]="1" *ngFor="let record of dataSource.filteredData">
+                <mat-card class="record-card">
+                    <mat-card-header>
+                        <div mat-card-avatar class="dollar-header-image"><span>$</span></div>
+                        <mat-card-subtitle>record</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p class="record">
+                            {{record.title}}
+                        </p>
+                        <br>
+                        <span class="record">
+                            {{record.import}}
+                        </span>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button class="pull-right" mat-button color="info" (click)="openDialog(record)">Edit</button>
+                        <button class="pull-right" mat-button color="danger" (click)="deleteRecord(record.id)">Delete</button>
+                    </mat-card-actions>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <ng-template #progressload>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ng-template>
+</mat-card>
+<button class="subut1" mat-raised-button color="warn" routerLink="/associationdashbord">กลับหน้าหลักสมาคม</button>

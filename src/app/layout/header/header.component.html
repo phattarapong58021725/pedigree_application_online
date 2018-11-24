@@ -1,4 +1,5 @@
 <div class="toolbar-container">
-    <span>{{app_title}}</span>
-    <a class="sing-out" mat-button (click)="signOut()">Sign Out</a>
-</div>
+        <a class="sing-out" mat-raised-button color="warn" (click)="signOut()">ออกจากระบบ</a>
+        <a  class="sing-out1 " routerLink="/userprofile">ยินดีตอนรับ :&nbsp;<img *ngIf="user" src="{{ user.downloadUrl }}" alt="" width="40" height="40">&nbsp; {{user.fname}} {{user.lname}} &nbsp;&nbsp;</a>
+      <a  class="sing-out2" [hidden]="!user.roles.authuser"  routerLink="/member" ><mat-icon  matBadge="{{length}}" matBadgeColor="warn">shopping_cart</mat-icon></a>
+    </div>

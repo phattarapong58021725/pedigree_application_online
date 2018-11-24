@@ -1,0 +1,172 @@
+table.mat-table {
+    width: 100%;
+    text-align: left;
+}
+.headd{
+    background-color:#0076D6;
+    color: white;
+}
+.mat-header-cell{
+    text-align: center;
+}
+.mat-cell
+{
+    text-align: center;
+    width: 100px;
+    font-size: 20px;
+}
+
+.headd2{
+    background-color:#0076D6;
+    color: white;
+}
+.headd3{
+    background-color:#0076D6;
+    color: white;
+}
+.subut{
+    margin-left: 12cm;
+    margin-top: 1cm;
+    padding-right: 1cm;
+    padding-left: 1cm;
+    padding-bottom: 0.3cm;
+    padding-top: 0.3cm;
+}
+
+.dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    margin-bottom: 10cm;
+  
+    .card-total {
+      width: 500px;
+      margin: auto;
+      height: 150px;
+      border-radius: 87px;
+      position: relative;
+      margin-top: 16px;
+  
+      span{
+          position: absolute;
+          top: 10px;
+          left: 4px;
+          font-size: 70px;
+          color: rgb(0, 0, 0);
+      }
+    }
+}
+  
+  .more-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  
+  .dashboard-card-content {
+    text-align: center;
+  }
+  .progres-dashboard {
+      height: 3px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      border-radius: 22px;
+  }
+
+.mat-card {    
+    max-width: 100%; 
+    margin: 0.5em auto;    
+    align-items: center;
+} 
+
+
+
+ .boot{
+     margin-top: 15px;
+     font-size: 35px;
+ }
+
+ .main-card{
+    height: 930px;
+}
+
+.setting-card{
+    height: 800px;
+}
+
+.settingtype{
+    height: 650px;
+}
+
+.settingcolor{
+    height: 650px;
+}
+
+.buttonaction{
+    width: 100px;
+    height: 40px;
+}
+
+.insert{
+    font-size: 14px;
+    width: 70%;
+}
+
+.colorinput-form{
+    min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.inputaction{
+    width: 50px;
+    height: 40px;
+}
+
+.coppp{
+    button{
+    height: 3cm;
+    width: 11cm;
+    margin: 0.5cm;
+ }
+
+}
+.mat-form-field.mat-form-field {
+    width:  12.5cm ;
+    height: 1cm;
+  }
+
+.cccss{
+    padding-bottom: 20px;
+}
+
+.mat-success{
+    background-color: #0bb9a9;
+    color: white;
+}
+.actionn{
+    button{
+        height: 2cm;
+        width: 4cm;
+        margin-top: 2px;
+    }
+}
+
+
+[hidden] {
+    display: none;
+  }
+
+  strong{
+    font-size: 40px;
+}
+
+mat-card{
+    border-radius: 10px 10px 10px 10px;
+}
+
+mat-card-title{
+    border-radius: 10px 10px 10px 10px;
+  }

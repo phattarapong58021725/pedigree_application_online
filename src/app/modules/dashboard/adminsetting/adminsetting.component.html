@@ -1,0 +1,37 @@
+<mat-card class="main-card" style="margin-top: 75px">
+    <mat-card-title class="headd text-center" style="font-size:35px;">
+        Administator
+    </mat-card-title>
+    <div class="row">
+        <div class="col-md-3">
+                <button mat-raised-button class="bottons"  (click)="popup(1)" >
+                      
+                        <p class="boot" routerLinkActive="active">  <img src="/assets/icon/rr.png" alt="rr" height="30" width="30"><strong>&nbsp;ตั้งค่าบัญชีผู้ใช้งาน</strong></p>
+              </button>
+
+            
+          <div *ngIf="dataSource && dataView=='card'">
+                <div *ngFor="let setting of dataSource.filteredData">                                                                                                                              
+                                <button class="stongg"  mat-raised-button class="bottons" (click)="openDialog2(setting)"><strong><img src="/assets/icon/rr.png" alt="rr" height="30" width="30">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ตั้งค่าธนาคาร</strong></button>                                                                             
+              </div>
+        </div>
+
+          <div *ngIf="dataSource && dataView=='card'">
+                <div *ngFor="let setting of dataSource.filteredData">                                                                                                                              
+                                <button class="stongg"  mat-raised-button class="bottons" (click)="openDialog(setting)"><strong><img src="/assets/icon/rr.png" alt="rr" height="30" width="30">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{setting.settingcattle}}</strong></button>                                                                             
+              </div>
+        </div>
+        
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-12">
+                    <mat-card class="setting-card">
+                        <app-usersetting *ngIf="check==1"></app-usersetting>
+                        <app-banksetting *ngIf="check==2"></app-banksetting>              
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+  </mat-card>

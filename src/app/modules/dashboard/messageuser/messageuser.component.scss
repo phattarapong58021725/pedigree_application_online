@@ -1,0 +1,106 @@
+.mat-success{
+    background-color: #0bb9a9;
+    color: white;
+}
+.top2{
+    text-align: center;
+    font-family: FCLamoon;
+    font-size: 50px;
+    padding-top: 15px;
+}
+.mat-dialog-content{
+    text-align: center;
+}
+
+
+
+
+.cardddd{
+    max-width: 100%;
+    min-height: 100%;    
+    margin: 1em auto;    
+    align-items: center;
+}
+.col{
+  margin: 7px;
+  padding: 48px;
+}
+
+
+.mat-form-field.mat-form-field {
+    width:  25cm ;
+    height: 1cm;
+    padding: 25px;
+  }
+
+  @media (max-width: 414px){
+    .mat-form-field.mat-form-field {
+        width: 7cm ;
+        height: 1cm;
+        padding-left: 0px;
+      }
+      .mat-dialog-title{
+        text-align: center;
+        font-family: FCLamoon;
+        font-size: 30px;
+        padding-top: 15px;
+    }
+  } 
+
+  @media (max-width: 375px){
+    .mat-form-field.mat-form-field {
+        width: 6.8cm ;
+        height: 1cm;
+        padding-left: 0cm;
+
+      }
+  } 
+
+
+  @media (max-width: 360px){
+    .mat-form-field.mat-form-field {
+        width: 6cm ;
+        height: 1cm;
+        padding-left: 0cm;
+
+      }
+  } 
+
+.headd{
+    background-color:#0076D6;
+    color: white;
+}
+
+.buttom{
+    margin-top: 0cm;
+}
+
+.buttom2{
+    margin-top: 0.6cm;
+}
+
+button{
+    height: 2cm;
+    width: 4cm;
+    border-radius: 10px 10px 10px 10px;
+}
+.chatscoo{
+    height: 450px;
+    margin-left: 20px;
+    margin-right: 20px;
+    overflow-y: scroll;
+}
+
+.reeeee{
+    display: flex;
+    justify-content: flex-start;
+}
+
+mat-card{
+    border-radius: 10px 10px 10px 10px;
+}
+
+mat-card-title{
+    border-radius: 10px 10px 10px 10px;
+  }
+

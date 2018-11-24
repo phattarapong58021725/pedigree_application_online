@@ -1,0 +1,60 @@
+<mat-card class="mainn">
+<div class="dddd">
+  <mat-card-title class="headd text-center" style="font-size:35px;">
+    เพิ่มที่อยู่ฟาร์มและที่อยู่จัดส่ง
+  </mat-card-title>
+
+  <div class="row">
+      <div class="col-md-6">
+            <mat-form-field appearance="outline">
+                    <mat-label>ชื่อสมาชิก</mat-label>
+                    <input matInput  placeholder="ภาษาไทย" [(ngModel)]="address.membernameTH"
+                        name="membernameTH" type="text">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>ชื่อสมาชิก</mat-label>
+                    <input matInput placeholder="ภาษาอังกฤษ" [(ngModel)]="address.membernameEN"
+                        name="membernameEN" type="text">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>ที่อยู่</mat-label>
+                    <input matInput  placeholder="กรอกที่อยู่แบบละเอียด" [(ngModel)]="address.member_address"
+                        name="member_address" type="text">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>ที่อยู่จัดส่ง</mat-label>
+                    <input matInput  placeholder="กรอกที่อยู่จัดส่ง" [(ngModel)]="address.shippingaddress"
+                        name="shippingaddress" type="text">
+                </mat-form-field>
+      </div>
+      <div class="col-md-6">
+           
+            <mat-form-field appearance="outline">
+                    <mat-label>เลขที่สมาชิก</mat-label>
+                    <input matInput  placeholder="(สามัญ/วิสามัญ)" [(ngModel)]="address.member_ID"
+                        name="member_ID" type="text">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>ชื่อฟาร์ม</mat-label>
+                    <input matInput  placeholder="กรอกชื่อฟาร์ม" [(ngModel)]="address.farm_Name"
+                        name="farm_Name" type="text">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>เครื่องหมายฟาร์ม</mat-label>
+                    <input matInput  placeholder="กรอกเครื่องหมายฟาร์ม" [(ngModel)]="address.farm_Logo"
+                        name="farm_Logo" type="text">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>เบอร์โทร</mat-label>
+                    <input matInput placeholder="กรอกเบอร์โทร" [(ngModel)]="address.member_tel"
+                        name="member_tel" type="text">
+                </mat-form-field>
+        </div>
+  </div>
+
+        
+          <div class="actionn text-center">
+          <button mat-raised-button (click)="saveAddressmamber()" cdkFocusInitial color="success">เพิ่ม</button>
+ </div>
+</div>
+</mat-card>

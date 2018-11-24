@@ -1,0 +1,122 @@
+<mat-card>
+        <mat-card-title class="headd text-center" style="font-size:35px;">
+                รายละเอียดโคที่ลูกค้าสั่งทำ
+        </mat-card-title>
+        <p class="datede"><strong>วันที่สั่งทำ</strong> : {{confirmorder.date_of_delivery | date: 'dd-MMM-yyyy'}}</p>
+        <div class="hedr">
+                <div class="row">
+                        <div class="col-md-6">
+                                <div class="row">
+                                        <div class="col-md-12">
+                                                <mat-card class="photooo">
+                                                                <img src = "{{test}}"  height="cover" width="510" >
+                                                </mat-card>
+                                        </div>
+                                        <div class="col-md-12">
+                                                <mat-card>
+                                                        <mat-card-title class="headd text-center" style="font-size:35px;">
+                                                                ข้อมูลโค
+                                                        </mat-card-title>
+                                                        <div class="row">
+                                                                <div class="col-md-6">
+                                                                        <p><strong>สายพันธุ์โค</strong> :
+                                                                                {{confirmorder.breed}}</p>
+                                                                        <p><strong>หมายเลขประจำตัวโค</strong> :
+                                                                                {{confirmorder.cattle_Id}}</p>
+                                                                        <p><strong>ชื่อโค</strong> :
+                                                                                {{confirmorder.cattle_Name}}</p>
+                                                                        <p><strong>วัน/เดือน/ปีเกิด</strong> :
+                                                                                {{confirmorder.date_of_birth | date:
+                                                                                'dd-MMM-yyyy'}}</p>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                        <p><strong>เพศ</strong> : {{confirmorder.sex}}</p>
+                                                                        <p><strong>สี</strong> : {{confirmorder.color}}</p>
+                                                                        <p><strong>การผสมพันธุ์</strong> :
+                                                                                {{confirmorder.breeding}}</p>
+                                                                </div>
+                                                        </div>
+                                                </mat-card>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="col-md-6">
+                                <div class="row">
+                                        <div class="col-md-12">
+                                                <mat-card>
+                                                        <mat-card-title class="headd text-center" style="font-size:35px;">
+                                                                ข้อมูลสมาชิก
+                                                        </mat-card-title>
+                                                        <div class="row">
+                                                                <div class="col-md-6">
+                                                                        <p><strong>ชื่อสมาชิกภาษาไทย</strong> :
+                                                                                {{confirmorder.membernameTH}}</p>
+                                                                        <p><strong>ชื่อสมาชิกภาษาอังกฤษ</strong> :
+                                                                                {{confirmorder.membernameEN}}</p>
+                                                                        <p><strong>ที่อยู่สมาชิก</strong> :
+                                                                                {{confirmorder.member_address}}</p>
+                                                                        <p><strong>เบอร์โทร</strong> :
+                                                                                {{confirmorder.member_tel}}</p>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                        <p><strong>หมายเลขสมาชิก</strong> :
+                                                                                {{confirmorder.member_ID}}</p>
+                                                                        <p><strong>ชื่อฟาร์ม</strong> :
+                                                                                {{confirmorder.farm_Name}}</p>
+                                                                        <p><strong>เครื่องหมายฟาร์ม</strong> :
+                                                                                {{confirmorder.farm_Logo}}</p>
+                                                                </div>
+                                                        </div>
+                                                </mat-card>
+                                                <div class="col-md-12">
+                                                        <div class="row">
+                                                                <div class="col-md-6">
+                                                                        <mat-card>
+                                                                                <mat-card-title class="headd text-center"
+                                                                                        style="font-size:35px;">
+                                                                                        ข้อมูลพ่อและแม่พันธุ์
+                                                                                </mat-card-title>
+                                                                                <p><strong>ชื่อพ่อพันธุ์</strong> :
+                                                                                        {{confirmorder.fa_Name}}</p>
+                                                                                <p><strong>เลขทะเบียนพ่อพันธุ์</strong>
+                                                                                        : {{confirmorder.fa_Id}}</p>
+                                                                                <p><strong>ชื่อแม่พันธุ์</strong> :
+                                                                                        {{confirmorder.ma_Name}}</p>
+                                                                                <p><strong>เลขทะเบียนแม่พันธุ์</strong>
+                                                                                        : {{confirmorder.ma_Id}}</p>
+                                                                                <p><strong>ผู้บำรุงพันธุ์</strong> :
+                                                                                        {{confirmorder.breeder}}</p>
+                                                                                <p><strong>เจ้าของโค</strong> :
+                                                                                        {{confirmorder.owner_name}}</p>
+                                                                        </mat-card>
+
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                        <mat-card>
+                                                                                <mat-card-title class="headd text-center"
+                                                                                        style="font-size:35px;">
+                                                                                        ข้อมูลแรกเกิดและอย่านม
+                                                                                </mat-card-title>
+                                                                                <p><strong>น้ำหนักแรกเกิด</strong> :
+                                                                                        {{confirmorder.birth_weight}}</p>
+                                                                                <p><strong>รอบอกแรกเกิด</strong> :
+                                                                                        {{confirmorder.birth_chert}}</p>
+                                                                                <p><strong>วันอย่านม</strong> :
+                                                                                        {{confirmorder.date_of_wean | date:
+                                                                                        'dd-MMM-yyyy'}}</p>
+                                                                                <p><strong>น้ำหนักวันอย่านม</strong> :
+                                                                                        {{confirmorder.wean_weight}}</p>
+                                                                                <p><strong>รอบอกวันอย่านม</strong> :
+                                                                                        {{confirmorder.wean_chert}}</p>
+                                                                                <p><strong>ความสูงสะโพก</strong> :
+                                                                                        {{confirmorder.hip_height}}</p>
+                                                                        </mat-card>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</mat-card>

@@ -1,0 +1,80 @@
+.mat-success{
+    background-color: #0bb9a9;
+    color: white;
+}
+.top2{
+    background: linear-gradient(60deg, #40a7ec, #1bd8cf);
+    color: white;
+    font-family: FCLamoon;
+    font-size: 50px;
+    padding-top: 15px;
+}
+
+.actionn{
+    padding-top: 60px;
+}
+
+mat-card {    
+    max-width: 100%;
+    min-height: 100%;    
+    margin: 0em auto;    
+    align-items: center;
+} 
+
+
+button {
+   height: 1.6cm;
+   width: 3.5cm;
+
+}
+
+.mat-form-field.mat-form-field {
+    width:  7.5cm ;
+    height: 1cm;
+    padding: 20px;
+  }
+
+  @media (max-width: 414px){
+    .mat-form-field.mat-form-field {
+        width: 7.3cm ;
+        height: 1cm;
+        padding-left: 0px;
+      }
+      .mat-dialog-title{
+        text-align: center;
+        font-family: FCLamoon;
+        font-size: 30px;
+        padding-top: 15px;
+    }
+    .col{
+        margin: 0px;  
+      }
+  } 
+
+  @media (max-width: 375px){
+    .mat-form-field.mat-form-field {
+        width: 6.8cm ;
+        height: 1cm;
+        padding-left: 0cm;
+
+      }
+  } 
+
+
+  @media (max-width: 360px){
+    .mat-form-field.mat-form-field {
+        width: 6cm ;
+        height: 1cm;
+        padding-left: 0cm;
+
+      }
+  } 
+
+.headd{
+    background: linear-gradient(60deg, #40a7ec, #1bd8cf);
+    color: white;
+}
+
+// .eer{
+//     margin: 19px;
+// }

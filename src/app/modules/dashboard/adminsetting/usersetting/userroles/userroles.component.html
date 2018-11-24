@@ -1,0 +1,32 @@
+<mat-card >
+  <mat-card-title class="headd text-center" style="font-size:35px;">
+     เปลี่ยนสถานะผู้ใช้งานระบบ
+    </mat-card-title>
+<div class="cennn">
+<mat-form-field>
+  <mat-select (keyup)="onChange($event)" placeholder="เปลี่ยนสถานะเป็นแอดมิน" [(ngModel)]="user.roles.admin" name="roles.admin" type="boolean">
+    <mat-option *ngFor="let role1 of role1s" [value]="role1.value">
+      {{role1.viewValue}}</mat-option>
+  </mat-select>
+  <mat-hint align="end">กดที่ลูกศรเพื่อเลือก^</mat-hint>
+</mat-form-field>
+<br>
+<br>
+<mat-form-field>
+  <mat-select (keyup)="onChange($event)" placeholder="เปลี่ยนสถานะสมาชิก" [(ngModel)]="user.roles.authuser" name="roles.authuser" type="boolean">
+      <mat-option *ngFor="let role2 of role2s" [value]="role2.value2">
+        {{role2.viewValue2}}</mat-option>
+  </mat-select>
+  <mat-hint align="end">กดที่ลูกศรเพื่อเลือก^</mat-hint>
+</mat-form-field>
+</div>
+
+<div class="actionn text-center">
+  <div *ngIf="!user.id;else updateuserid ">
+    <button mat-raised-button (click)="saveRecord()" cdkFocusInitial color="success">บันทึก</button>
+  </div>
+  <ng-template #updateuserid>
+    <button (click)="updateuser()" mat-raised-button cdkFocusInitial color="success">เปลี่ยน</button>
+  </ng-template>
+</div>
+</mat-card>

@@ -1,27 +1,33 @@
-<mat-sidenav-container *ngIf="user ;else spinner" class="sidenav-container">
+<mat-sidenav-container  class="sidenav-container"  >
     <mat-sidenav
     #drawer
     class="sidenav"
-    fixedInViewport="true"
+    fixedInViewport="false"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)">
-    <mat-toolbar color="primary">
-        <div  class="profile" >
-            <div>
-                <img src="{{user.photoURL||'https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png'}}" alt="">
-            </div>
-            <span>{{user.displayName || "Welcome" }}</span>
-        </div>        
+    <mat-toolbar>
+      <div  class="profile" >
+          <img class="navslidd" *ngIf="user" src="{{ user.downloadUrl }}" alt="" width="40" height="40">
+          <a class="navhid">{{user.fname}}</a>
+        </div>    
     </mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/dashboard" >Home</a>
-      <a mat-list-item routerLink="/invoices" routerLinkActive="active"> Invoice List</a>
+        <a mat-list-item routerLink="/dashboard"  >หน้าหลัก</a>
+        <!-- <a mat-list-item routerLink="/record"      routerLinkActive="active">บันทึกข้อมูลโค</a>
+        <a mat-list-item routerLink="/search"      routerLinkActive="active">ค้นหาข้อมูลโค</a> -->
+        <a mat-list-item routerLink="/order"       routerLinkActive="active">สั่งทำใบพันธุ์ประวัติ</a>
+        <a mat-list-item routerLink="/follow"      routerLinkActive="active">ติดตามสถานะ</a>
+        <a mat-list-item routerLink="/report"      routerLinkActive="active">ออกรายงาน</a>
+        <a mat-list-item routerLink="/messageuser"      routerLinkActive="active">ติดต่อสมาคม</a>
+        <!-- <a mat-list-item routerLink="/association" routerLinkActive="active">หน้าสำหรับสมาคม</a> -->
+        <a mat-list-item routerLink="/userprofile"    routerLinkActive="active">โปรไฟล์</a>
+        <a mat-list-item routerLink="/associationdashbord"  routerLinkActive="active">หน้าหลักสมาคม</a>
+        <a mat-list-item routerLink="/adminsetting" routerLinkActive="active">ตั้งค่า(แอดมิน)</a>
     </mat-nav-list>
-    
     </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar>
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -30,7 +36,39 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <navigation-header style="width: 100%"></navigation-header>
+      <img class="logoo"  src="/assets/img/logo.png" alt="" width="60" height="60">
+      <h1>Cattle Pedigree Online</h1>&nbsp;
+      <div class="spacer">
+        <mat-nav-list>
+          <a mat-list-item routerLink="/dashboard" [hidden]="!user.roles.authuser" class="text-focus-in" ><img src="/assets/icon/home-icon-silhouette.png" alt="home-icon-silhouette" height="20" width="20">&nbsp;หน้าหลัก</a>
+          <!-- <a mat-list-item routerLinkActive="active" [hidden]="!user.roles.authuser" [matMenuTriggerFor]="menu"><img src="/assets/icon/edit-document.png" alt="edit-document" height="20" width="20">&nbsp;บันทึก&nbsp; <mat-icon>arrow_drop_down</mat-icon></a> -->
+          <!-- <a mat-list-item routerLink="/search"      routerLinkActive="active" [hidden]="!user.roles.authuser"><img src="/assets/icon/magnifier.png" alt="magnifier" height="20" width="20">&nbsp;รายการบันทีกรอสั่งทำ</a> -->
+          <a mat-list-item routerLink="/order"       routerLinkActive="active" [hidden]="!user.roles.authuser" class="text-focus-in"><img src="/assets/icon/shopping.png" alt="shopping" height="20" width="20">&nbsp;สั่งทำใบพันธุ์ประวัติ</a>
+          <a mat-list-item routerLinkActive="active" [hidden]="!user.roles.authuser" [matMenuTriggerFor]="menu"  class="text-focus-in"><img src="/assets/icon/logisticst.png" alt="logisticst" height="20" width="20">&nbsp;ติดตามสถานะ&nbsp; <mat-icon>arrow_drop_down</mat-icon></a> 
+          <!-- <a mat-list-item routerLink="/follow"      routerLinkActive="active" [hidden]="!user.roles.authuser" class="text-focus-in"><img src="/assets/icon/logisticst.png" alt="logisticst" height="25" width="25">&nbsp;ติดตามสถานะ</a> -->
+          <a mat-list-item routerLink="/report"      routerLinkActive="active" [hidden]="!user.roles.authuser" class="text-focus-in"><img src="/assets/icon/text-documents.png" alt="text-documents" height="20" width="20">&nbsp;ออกรายงาน</a>
+          <!-- <a mat-list-item routerLink="/allorder"      routerLinkActive="active" [hidden]="!user.roles.authuser" class="text-focus-in"><img src="/assets/icon/text-documents.png" alt="text-documents" height="20" width="20">&nbsp;รายการทั้งหมด</a> -->
+          <a mat-list-item routerLink="/messageuser"      routerLinkActive="active" [hidden]="!user.roles.authuser" class="text-focus-in"><img src="/assets/icon/call-answer.png" alt="call-answer" height="20" width="20">&nbsp;ติดต่อสมาคม</a>
+          <!-- <a mat-list-item routerLink="/association" routerLinkActive="active">หน้าสำหรับสมาคม</a> -->
+          <!-- <a mat-list-item routerLink="/userprofile"    routerLinkActive="active" [hidden]="!user.roles.authuser"><img src="/assets/icon/user-silhouette.png" alt="user-silhouette" height="20" width="20">&nbsp;โปรไฟล์</a> -->
+          <a mat-list-item  routerLink="/associationdashbord"  routerLinkActive="active" [hidden]="!user.roles.admin" class="text-focus-in1"  ><img src="/assets/icon/businessman.png" alt="businessman" height="20" width="20">&nbsp;หน้าหลักสมาคม</a>
+          <a mat-list-item  routerLink="/association"  routerLinkActive="active" [hidden]="!user.roles.admin" class="text-focus-in1"  ><img src="/assets/icon/document.png" alt="document" height="20" width="20">&nbsp;ตรวจสอบออเดอร์สั่งทำ</a>
+          <a mat-list-item  routerLink="/associationreport"  routerLinkActive="active" [hidden]="!user.roles.admin" class="text-focus-in1"  ><img src="/assets/icon/text-documents.png" alt="text-documents" height="20" width="20">&nbsp;ออกรายงาน</a>
+          <a mat-list-item  routerLink="/messageofficer"  routerLinkActive="active" [hidden]="!user.roles.admin" class="text-focus-in1"  ><img src="/assets/icon/call-answer.png" alt="call-answer" height="20" width="20">&nbsp;ข้อความจากลูกค้า</a>
+          <a mat-list-item  routerLink="/associationprofile"  routerLinkActive="active" [hidden]="!user.roles.admin"  class="text-focus-in1" ><img src="/assets/icon/user-silhouette.png" alt="user-silhouette" height="20" width="20">&nbsp;โปรไฟล์พนักงาน</a>
+          <a mat-list-item  routerLink="/adminsetting" routerLinkActive="active" [hidden]="!user.roles.superadmin" class="text-focus-in1" ><img src="/assets/icon/rr.png" alt="rr" height="20" width="20">&nbsp;ตั้งค่า(แอดมิน)</a>
+        </mat-nav-list>
+      </div> 
+
+        <mat-menu  [overlapTrigger]="false"  #menu="matMenu"  >  
+            <button mat-menu-item routerLink="/follow"          [hidden]="!user.roles.authuser" ><img src="/assets/icon/logisticst.png" alt="logisticst" height="25" width="25">&nbsp;ติดตามสถานะการสั่งทำ</button>
+            <button mat-menu-item routerLink="/allorder"      [hidden]="!user.roles.authuser" ><img src="/assets/icon/text-documents.png" alt="text-documents" height="20" width="20">&nbsp;รายการที่สำเร็จทั้งหมด</button>
+          <!-- <button mat-menu-item routerLink="/record"      routerLinkActive="active" [hidden]="!user.roles.authuser"><img src="/assets/icon/edit-document.png" alt="edit-document" height="20" width="20">&nbsp;บันทึกเพื่อสั่งทำ</button>
+        <button  mat-menu-item  routerLink="/search"      routerLinkActive="active" [hidden]="!user.roles.authuser"><img src="/assets/icon/magnifier.png" alt="magnifier" height="20" width="20">&nbsp;รายการบันทีกรอสั่งทำ</button> -->
+      </mat-menu>
+
+      <!-- <div class="spacer2">{{user.fname}} {{user.lname}}</div> -->
+        <navigation-header style="width: 100%"></navigation-header>
     </mat-toolbar>
     <div class="grid-container">
       <router-outlet></router-outlet>

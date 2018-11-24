@@ -1,0 +1,62 @@
+<mat-card class="top1" style="margin-top: 75px" >
+    <mat-card-title class="headd text-center" style="font-size:35px;">
+        ชำระเงิน
+    </mat-card-title>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-card>
+            <mat-card-title class="headd text-center" style="font-size:35px;">
+                กรุณาเลือกวิธีการชำระเงิน
+            </mat-card-title>
+            <div class="row">
+              <div class="col-md-4">
+                  <mat-card class="iconnnc action-card"  matRipple class="rerer" tabindex="1" (click)="popup(1)">
+                     <div class="cennr">
+                      <img src="/assets/icon/cash-machine.png" alt="cash-machine" height="80" width="80"><br><br>
+                          <p class="textedit">ชำระเงินที่ATM</p>
+                        </div>
+
+                  </mat-card>
+              </div>
+              <div class="col-md-4">
+                  <mat-card class="iconnnc action-card"  matRipple class="rerer" tabindex="1" (click)="popup(3)">
+                      <div class="cennr">
+                      <img src="/assets/icon/online-shop.png" alt="online-shop" height="80" width="80"><br><br>
+                          <P class="textedit">ชำระผ่านโมบายแบงก์กิ้ง</P>
+                        </div>
+
+                    </mat-card>
+                </div>
+                <div class="col-md-4">
+                    <mat-card class="iconnnc action-card"  matRipple class="rerer" tabindex="1" (click)="popup(2)" > 
+                        <div class="cennr">
+                        <img src="/assets/icon/bank (1).png" alt="bank (1)" height="80" width="80"><br><br>
+                          <P class="textedit">การเก็บเงินปลายทาง</P>  
+                        </div>
+                      </mat-card>
+                  </div>
+            </div>
+        </mat-card>
+
+
+        <mat-card class="popup ">
+            <app-atm *ngIf="check==1"></app-atm>
+            <app-cashondeli  *ngIf="check==2"></app-cashondeli>
+            <app-mobilebanking  *ngIf="check==3"></app-mobilebanking>
+        </mat-card>
+      </div>
+      <div class="col-md-6">
+        <mat-card class="sunnn">
+            <mat-card-title class="headd text-center" style="font-size:35px;">
+                สรุปคำสั่งซื้อ
+            </mat-card-title>
+            <mat-card>
+              <p><strong>ยอดรวม ( {{length}} รายการ)</strong></p>
+              <p><strong>พันธุ์แท้(450 บาท/ตัว) {{blood_type_1}}  ตัว</strong> <span class="blacee">฿{{blood_type_1 * 450}}</span></p>
+              <p><strong>พันธุ์ผสม(350 บาท/ตัว) {{blood_type_2}}  ตัว</strong> <span class="blacee">฿{{blood_type_2 * 350}}</span></p>
+              <p ><strong class="testss">รวมทั้งสิ้น</strong><span class="blacee testss" >฿ {{(blood_type_1 *  450 ) +(blood_type_2 *  350)}}</span> </p>
+            </mat-card>
+        </mat-card>
+        </div>
+    </div>
+    </mat-card>

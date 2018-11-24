@@ -1,0 +1,101 @@
+table.mat-table {
+    width: 100%;
+    text-align: center;
+}
+.mat-header-cell{
+    text-align: center;
+    font-size: 30px;
+}
+@media (max-width: 414px){
+    .mat-header-cell{
+        text-align: center;
+        font-size: 20px;
+    }
+}
+.mat-cell{
+    font-size: 20px;
+}
+@media (max-width: 414px){
+    .mat-cell{
+        font-size: 15px;
+    }
+}
+
+.invoice-card{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+}
+.invoice_import{
+    font-size: 39px;
+}
+
+.dollar-header-image{
+    background-color:#0bb9a9;
+    color: white;
+    position: relative;
+    span{
+        position: absolute;
+        left: 15px;
+        right: 0;
+        top: 11px;
+    }
+}
+
+.mat-card-subtitle{
+    font-size: 29px;
+    margin-top: 3px;
+}
+
+.mat-card-content{
+    text-align: center;
+}
+
+.btn-row{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+
+    .mat-success-dialog{
+        background-color: #0bb9a9;
+        color: white;
+    }
+}
+
+mat-card {    
+    max-width: 97%;   
+    max-height: 100%; 
+    margin: 0.5em auto;    
+    align-items: center;
+} 
+
+.photooo{
+    width: 18cm;
+    height: 10cm;
+}
+
+.mat-toolbar {
+    text-align: center;
+    font-family: FCLamoon;
+    font-size: 40px;
+    padding-top: 5px;
+}
+
+
+.headd{
+    background-color:#0076D6;
+    color: white;
+}
+
+button{
+    height: 1.6cm;
+    width: 3.5cm;
+    margin-left: 19cm;
+    
+ }
+ .datede{
+     text-align: center;
+     font-size: 25px;
+ }

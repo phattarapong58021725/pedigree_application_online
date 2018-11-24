@@ -1,0 +1,61 @@
+<mat-card class="top1" style="margin-top: 75px" >
+    <mat-card-title class="headd text-center" style="font-size:35px;">
+        สั่งทำใบพันธุ์ประวัติโค
+    </mat-card-title>
+    <div class="row">
+        <div class="col-md-9 ssd">
+            <mat-card class="uiuiui">
+                <div class="row">
+                    <div class="col-md-4">
+                            <!-- <div class="card">
+                                <div class="content">
+                                      <div class="front">
+                                            <img src="/assets/img/doccc.png" alt="doccc" style="border-radius: 20px 20px 20px 20px;" >
+                                      </div>
+                                      <div class="back">
+                                        Back!
+                                      </div>
+                                </div>
+                            </div> -->
+                    </div>
+                    <div class="col-md-4">
+                            <!-- <div class="card">
+                                    <div class="content">
+                                          <div class="front">
+                                                <img src="/assets/img/process.png" alt="process" style="border-radius: 20px 20px 20px 20px;" >
+                                          </div>
+                                          <div class="back">
+                                            Back!
+                                          </div>
+                                    </div>
+                                </div> -->
+                        
+                    </div>
+                    <div class="col-md-4">
+                            <!-- <div class="card">
+                                    <div class="content">
+                                          <div class="front">
+                                            Front
+                                          </div>
+                                          <div class="back">
+                                            Back!
+                                          </div>
+                                    </div>
+                                </div> -->
+                        
+                    </div>
+                </div>
+                    <!-- <img src="/assets/img/eeeee.jpg" alt="eeeee" height="750" width="1430"> -->
+            </mat-card>              
+        </div>
+        <div class="col-md-3">
+            <div *ngIf="dataSource && dataView=='card'">
+                <div *ngFor="let setting of dataSource.filteredData">
+                    <button class="stongg slide-in-bottom" mat-raised-button  (click)="openDialog(setting)"><a>{{setting.selectcattle}}</a></button>
+                </div>
+            </div><br>
+            <button mat-raised-button  class="stongg2 slide-in-bottom1"  routerLink="/member"  ><a>รายการสั่งทำ</a></button>
+            <button mat-raised-button  class="stongg1 slide-in-bottom2"  routerLink="/follow"  ><a>ติดตามสถานะ</a></button>
+        </div>
+    </div>
+</mat-card>

@@ -1,43 +1,227 @@
-<div class="singup-container">
-        <h1 class="text-center">Sing Up</h1>
-        
-        <mat-form-field class="example-full-width">
-                <input  (keyup)="onChange($event)" type="text" name="name"  matInput placeholder="Name" [formControl]="nameFormControl"
-                       [errorStateMatcher]="matcher">
-                <mat-error *ngIf="emailFormControl.hasError('required')">
-                  Name is <strong>required</strong>
-                </mat-error>
-        </mat-form-field>
+<div class="images">
+<br><br class="fff">
+<app-header-public></app-header-public>
+<div class="main-header">
+<mat-card class="main-card">
+  <mat-card-title class="headd text-center" style="font-size:35px;">
+    สมัครสมาชิก
+  </mat-card-title>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <mat-tab-group  #matgroup mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4 demo-tab-group">
+      <mat-tab label="กรอกรายละเอียด"> 
+         <div class="ddd">
+              <div class="row">
+                  <div class="col-md-6">
+          
+                      <!-- <div class="form-group row">
+                          <label for="member_ID" class="col-sm-3 col-form-label">เลขที่สมาชิก</label>
+                          <div class="col-sm-9">
+                            <input class="form-control" name="member_ID" id="member_ID" ngModel required placeholder="เลขที่สมาชิก">
+                          </div>
+                        </div> -->
+          
+                        <div class="form-group row">
+                            <label for="farm_Name" class="col-sm-3 col-form-label">ชื่อฟาร์ม</label>
+                            <div class="col-sm-9">
+                              <input class="form-control" name="farm_Name" id="farm_Name" ngModel required placeholder="ชื่อฟาร์ม">
+                            </div>
+                          </div>
+          
+                          <div class="form-group row">
+                              <label for="farm_Logo" class="col-sm-3 col-form-label">สัญญาลักษณ์ฟาร์ม</label>
+                              <div class="col-sm-9">
+                                <input class="form-control" name="farm_Logo" id="farm_Logo" ngModel required placeholder="สัญญาลักษณ์ฟาร์ม">
+                              </div>
+                            </div>
+          
+                      <div class="form-group row">
+                          <label for="fname" class="col-sm-3 col-form-label">ชื่อ</label>
+                          <div class="col-sm-9">
+                            <input class="form-control" name="fname" ngModel required id="fname" placeholder="ชื่อ">
+                          </div>
+                        </div>
+                    
+                        <div class="form-group row">
+                          <label for="lname" class="col-sm-3 col-form-label">นามสกุล</label>
+                          <div class="col-sm-9">
+                            <input class="form-control" name="lname" id="lname" ngModel required placeholder="นามสกุล">
+                          </div>
+                        </div>
+                    
+                        <div class="form-group row">
+                          <label for="username" class="col-sm-3 col-form-label">ชื่อภาษาอังกฤษ</label>
+                          <div class="col-sm-9">
+                            <input class="form-control" name="username" id="username" ngModel required placeholder="ชื่อภาษาอังกฤษ">
+                          </div>
+                        </div>
 
-        <mat-form-field class="example-full-width">
-                <input  (keyup)="onChange($event)" type="text" name="subname"  matInput placeholder="Subname" [formControl]="subnameFormControl"
-                       [errorStateMatcher]="matcher">
-                <mat-error *ngIf="subnameFormControl.hasError('required')">
-                  Subname is <strong>required</strong>
-                </mat-error>
-        </mat-form-field>
+                        <div class="form-group row">
+                        <label for="username" class="col-sm-3 col-form-label">เพศ</label>
+                        <div class="col-sm-9">
+                        <select class="form-control" name="gender" ngModel="ชาย">
+                          <option selected value="ชาย">ชาย</option>
+                          <option value="หญิง">หญิง</option>
+                        </select>
+                      </div>
+                      </div>
+                    
+                        <!-- <div class="form-group row">
+                          <label for="gender" class="col-sm-3 col-form-label">เพศ</label>
+                          <div class="col-sm-9">
+                            <input class="form-control" name="gender" id="gender" ngModel required placeholder="เพศ">
+                          </div>
+                        </div> -->
 
-        <mat-form-field class="example-full-width">
-          <input  (keyup)="onChange($event)" type="email" name="email"  matInput placeholder="Email" [formControl]="emailFormControl"
-                 [errorStateMatcher]="matcher">
-          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-            Please enter a valid email address
-          </mat-error>
-          <mat-error *ngIf="emailFormControl.hasError('required')">
-            Email is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-    
-        <mat-form-field class="example-full-width">
-          <input  minlength="4" (keyup)="onChange($event)" type="password" name="password" matInput placeholder="Password" [formControl]="passwordFormControl"
-                 [errorStateMatcher]="matcher">
-            <mat-error *ngIf="passwordFormControl.hasError('required') ">
-                Password is <strong>required</strong>
-            </mat-error>
-        </mat-form-field>
-        <div class="button-row text-right">
-            <button (click)="singUp()" mat-raised-button color="success">SingUp</button>
+                        <div class="form-group row">
+                            <label for="ID_card" class="col-sm-3 col-form-label">รหัสบัตรประชาชน</label>
+                            <div class="col-sm-9">
+                              <input class="form-control" name="ID_card" id="ID_card" ngModel required placeholder="รหัสบัตรประชาชน">
+                            </div>
+                          </div>
+
+                  </div>
+                  <div class="col-md-6">
+
+                      <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-3 col-form-label">ที่อยู่</label>
+                          <div class="col-sm-9">
+                            <input class="form-control" name="address" id="address" ngModel required placeholder="ที่อยู่">
+                          </div>
+                        </div>
+          
+                        <div class="form-group row">
+                            <label for="farm_address" class="col-sm-3 col-form-label">ที่อยู่ฟาร์ม</label>
+                            <div class="col-sm-9">
+                              <input class="form-control" name="farm_address" id="farm_address" ngModel required placeholder="ที่อยู่ฟาร์ม">
+                            </div>
+                          </div>
+                    
+                        <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-3 col-form-label">เบอร์ส่วนตัว</label>
+                          <div class="col-sm-9">
+                            <input class="form-control" name="mobile" id="mobile" ngModel required placeholder="เบอร์ส่วนตัว">
+                          </div>
+                        </div>
+                    
+                        <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-3 col-form-label">เบอร์บ้าน</label>
+                          <div class="col-sm-9">
+                            <input class="form-control" name="tel" id="tel" ngModel required placeholder="เบอร์บ้าน">
+                          </div>
+                        </div>
+                    
+                        <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-3 col-form-label">แฟกซ์</label>
+                          <div class="col-sm-9">
+                            <input class="form-control" name="fax" id="fax" ngModel required placeholder="แฟกซ์">
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="line" class="col-sm-3 col-form-label">ไอดี ไลน์</label>
+                            <div class="col-sm-9">
+                              <input class="form-control" name="line" id="line" ngModel required placeholder="กรอก ID line">
+                            </div>
+                          </div>
+                    
+                        <div class="form-group row">
+                          <label for="inputEmail3" class="col-sm-3 col-form-label">อีเมลสำรอง</label>
+                          <div class="col-sm-9">
+                            <input class="form-control" name="other_email" id="other_email" ngModel required placeholder="อีเมลสำรอง">
+                          </div>
+                        </div>
+
+                    </div>
+            </div>
+            <div class="row">
+          <div class="col-md-4">
+
+          </div>
+          <div class="col-md-4">
+            <mat-card>
+              <div class="form-group row">
+                  <label for="email" class="col-sm-3 col-form-label">Email</label>
+                  <div class="col-sm-9">
+                    <input class="form-control" type="email" name="email" id="email" ngModel required placeholder="Email">
+                  </div>
+                </div>
+  
+                <div class="form-group row">
+                    <label for="Password" class="col-sm-3 col-form-label">Password</label>
+                    <div class="col-sm-9">
+                      <input class="form-control" type="password" name="password" id="password" ngModel required placeholder="Password">
+                    </div>
+                  </div>
+                </mat-card>
+            </div>
+       
+            <div class="col-md-4">
+            
+              </div>
+            </div>
+           <br>
+          <div  class="text-center">
+
+              <button type="button"  mat-raised-button color="primary" (click)="selectNext(matgroup)">ต่อไป</button>
+             
+             
+            </div>
+            
+              <p class="text-center">ไปที่หน้า <a routerLink="/login">ลงชื่อเข้าใช้</a> </p>
+          
+              
+            </div>
+      </mat-tab>
+
+      <mat-tab label="อัพโหลดเอกสารยืนยันตัวตนและสลิปธนาคาร"> 
+          <div class="ddd">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-center">เลือกประเภทสมาชิกและอัพโหลดรูปสลิปธนาคาร</p>
+                <mat-card>
+                    <select class="form-control" name="member_type" ngModel="สมาชิกสามัญตลอดชีพ" placeholder="เลือกประเภทสมาชิก">
+                      <option selected value="สมาชิกสามัญตลอดชีพ">สมาชิกสามัญตลอดชีพ</option>
+                      <option value="สมาชิกวิสามัญตลอดชีพ">สมาชิกวิสามัญตลอดชีพ</option>
+                    </select>
+            </mat-card>
+            <br>
+              <mat-card class="regiter">
+             
+                </mat-card>            
+              </div>
+          <div class="col-md-6">
+            <p class="text-center">อัพโหลดรูปบัตรประชาชน</p>
+            <mat-card class="idcard">
+
+            </mat-card>
+          </div>     
         </div>
-        <p>Or go to login page, <a href="/login" mat-raised-butto>Login</a> </p>
-        <app-footer></app-footer>
-    </div>
+        <br>
+          <div  class="text-center">
+          <button type="submit" mat-raised-button color="primary">ตกลง</button>
+          </div>
+          </div>
+         </mat-tab>
+      
+        
+    
+    </mat-tab-group>
+  </form>
+ </mat-card>
+<app-footer></app-footer>
+<!-- <div class="form-group">
+              <label for="fullname">Full name</label>
+              <input type="email" name="fullname" id="fullname" ngModel class="form-control" required>
+            </div> -->
+
+<!-- <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" ngModel class="form-control" required>
+            </div> -->
+
+<!-- <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" ngModel class="form-control" required>
+            </div> -->
+</div>
+</div>

@@ -1,8 +1,9 @@
-
 .toolbar-container{
     width: 100%;
     .sing-out{
         float: right;
+        margin-right: 10px;
+        margin-top: 2px;
     }
 }
 
@@ -10,3 +11,36 @@
   width: 200px;
   box-shadow: 3px 0 6px rgba(0,0,0,.24);
 }
+
+.sing-out1{
+    float: right;
+    margin-top: 1px;
+    background-color: #003171;
+    color: white;
+}
+
+.sing-out2{
+    float: right;
+    margin-top:10px;
+    margin-right: 10px;
+    color: rgb(255, 255, 255);
+
+}
+
+@media (max-width: 414px){
+    .sing-out1{
+        display: none;
+    }
+
+}
+
+img {
+    border-radius: 50%;
+}
+
+@media (max-width: 414px){
+    .sing-out2{
+        display: none;
+      }
+  } 
+  

@@ -1,0 +1,67 @@
+<mat-card style="margin-top: 75px">
+    <mat-card-title class="headd text-center" style="font-size:35px;">
+      <h1>CONTACT US</h1>
+      <p>ติดต่อสอบถามสมาคม</p>
+    </mat-card-title>
+    <div class="row">
+      <div class="col-md-5">
+        <mat-card>
+          <mat-card-title class="headd text-center" style="font-size:35px;">
+            ช่องทางการติดต่อ
+          </mat-card-title>
+          <mat-card class="cardddd">
+          <img src="/assets/png/029-telephone-1.png" height="70" width="70"><a style="font-size:25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;โทรติดต่อสอบถามสมาคม Call Center 053-555666</a>
+        </mat-card>
+        <mat-card class="cardddd">
+            <img src="/assets/png/013-mail.png" height="70" width="70"><a style="font-size:25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;อีเมล AssociationCattle@hotmail.co.th</a>
+          </mat-card>
+          <mat-card class="cardddd">
+              <img src="/assets/png/021-email.png" height="70" width="70"><a style="font-size:25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ศูนย์รับเรื่องร้องเรียนลูกค้า ตู้ ปณ.44 ศฝ.หัวลำโพง กทม. 10331</a>
+            </mat-card>
+            <mat-card class="cardddd">
+                <img src="/assets/png/004-assistance.png" height="70" width="70"><a style="font-size:25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ติดต่อนายกสมาคม โทร 053-444555</a>
+              </mat-card>
+        </mat-card>
+      </div>
+      <div class="col-md-7">
+        <mat-card>
+            <mat-card-title class="headd text-center" style="font-size:35px;">
+                ติดต่อโตยตรง
+              </mat-card-title>
+              <div class="chatscoo">
+              <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      <app-chatdetail></app-chatdetail>
+                    <div class="reeeee">
+                      <app-chatdetailofficer></app-chatdetailofficer>
+                    </div>
+                    </div>
+              </div>
+              </div>
+            </div>
+              <div class="row">
+                <div class="col-md-10">
+                    <div class="buttom">
+                        <mat-form-field appearance="fill">
+                            <mat-label>ข้อความ</mat-label>
+                            <input matInput (keyup.enter)="onChange($event) || saveChat()" placeholder="กรอกข้อความ" [(ngModel)]="chat.inchat" name="inchat" type="text">
+                        </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                      <div class="buttom2">
+                          <div *ngIf="!chat.id;else updatechatid ">
+                              <button mat-raised-button (click)="saveChat()" cdkFocusInitial color="success">ส่ง</button>
+                          </div>
+                          <ng-template #updatechatid>
+                              <button (click)="updateChat()" mat-button cdkFocusInitial color="success">แก้ไข</button>
+                          </ng-template>
+                      </div>
+                    </div>
+              </div>
+        </mat-card>
+  
+      </div>
+    </div>
+  </mat-card>

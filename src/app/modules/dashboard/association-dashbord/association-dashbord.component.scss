@@ -1,0 +1,130 @@
+table.mat-table {
+    width: 100%;
+    text-align: left;
+}
+.headd{
+    background-color:#0076D6;
+    color: white;
+}
+.mat-header-cell{
+    text-align: center;
+}
+.mat-cell
+{
+    text-align: center;
+}
+
+.headd2{
+    background-color:#0076D6;
+    color: white;
+}
+.headd3{
+    background-color:#0076D6;
+    color: white;
+}
+.subut{
+    margin-left: 12cm;
+    margin-top: 1cm;
+    padding-right: 1cm;
+    padding-left: 1cm;
+    padding-bottom: 0.3cm;
+    padding-top: 0.3cm;
+}
+
+.dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    margin-bottom: 10cm;
+  
+    .card-total {
+      width: 500px;
+      margin: auto;
+      height: 150px;
+      border-radius: 87px;
+      position: relative;
+      margin-top: 16px;
+  
+      span{
+          position: absolute;
+          top: 10px;
+          left: 4px;
+          font-size: 70px;
+          color: rgb(0, 0, 0);
+      }
+    }
+}
+  
+  .more-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  
+  .dashboard-card-content {
+    text-align: center;
+  }
+  .progres-dashboard {
+      height: 3px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      border-radius: 22px;
+  }
+
+  .mat-card {    
+    max-width: 100%; 
+    margin: 0.5em auto;    
+    align-items: center;
+  } 
+  
+  .photoo{
+    height: 20.2cm;
+  }
+  
+  .phooo{
+    text-align: center;
+    width: 4cm;
+    height: 5cm;
+    padding: 0px;
+    padding-top: 5px;
+  
+  }
+  .upupup{
+    text-align: center;
+    font-size: 10px;
+  }
+
+button{
+    height: 3cm;
+    width: 9.1cm;
+    margin: 0.5cm;
+    border-radius: 10px 10px 10px 10px;
+ }
+
+ .boot{
+     margin-top: 15px;
+     font-size: 30px;
+ }
+
+ .bottr{
+     height: 250px;
+ }
+ 
+.blacee{
+    float: right;
+  }
+
+  mat-card{
+    border-radius: 10px 10px 10px 10px;
+}
+
+.blasss{
+        background-image: url('/assets/img/ddddsc.jpg');
+        height: 100% ;
+}
+
+
+ 

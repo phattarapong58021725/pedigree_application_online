@@ -1,0 +1,30 @@
+<mat-card class="main-card" style="margin-top: 75px">
+    <mat-card-title class="headd text-center" style="font-size:35px;">
+        Administator
+    </mat-card-title>
+
+    <div class="row">
+            <div class="col-md-3 coppp">
+                    <button mat-raised-button color="warn" routerLink="/usersetting">
+                        <p class="boot" routerLinkActive="active"><img src="/assets/icon/rr.png" alt="rr" height="20" width="20">&nbsp;ตั้งค่าบัญชีผู้ใช้งาน</p>
+                    </button>
+
+                
+
+                    <button mat-raised-button color="warn" routerLink="/banksetting">
+                        <p class="boot" routerLinkActive="active"><img src="/assets/icon/rr.png" alt="rr" height="20" width="20">&nbsp;ตั้งค่าบัญชีธนาคาร</p>
+                    </button>
+                    <div *ngIf="dataSource && dataView=='card'">
+                        <div *ngFor="let setting of dataSource.filteredData">
+                            <button class="stongg" mat-raised-button color="accent" (click)="openDialog(setting)"><strong><img
+                                        src="/assets/icon/rr.png" alt="rr" height="30" width="30">&nbsp;{{setting.settingcattle}}</strong></button>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-md-9">
+            </div>
+        </div>
+        
+  
+</mat-card>
+

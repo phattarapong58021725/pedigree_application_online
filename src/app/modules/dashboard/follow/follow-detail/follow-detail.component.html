@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-title class="headd text-center" style="font-size:35px;">
+    สถานะการสั่งทำ
+  </mat-card-title>
+  <div class="hedr">
+    <p mat-stroked-button color="accent" class="statustop">{{confirmorder.status}}</p>
+  </div>
+  <mat-card>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-card>
+          <img src = "{{test}}" height="cover" width="270"  >
+        </mat-card>
+      </div>
+      <div class="col-md-6">
+        <p><strong>ชื่อสมาชิกภาษาไทย</strong> : {{confirmorder.membernameTH}}</p>
+        <p><strong>สายพันธุ์โค</strong> : {{confirmorder.breed}}</p>
+        <p><strong>ชื่อโค</strong> : {{confirmorder.cattle_Name}}</p>
+        <p><strong>ชื่อพ่อพันธุ์</strong> : {{confirmorder.fa_Name}}</p>
+        <p><strong>ชื่อแม่พันธุ์</strong> : {{confirmorder.ma_Name}}</p>
+        <p><strong>วันที่สั่งทำ</strong> : {{confirmorder.date_of_delivery | date: 'dd-MMM-yyyy'}}</p>
+      </div>
+    </div>
+  </mat-card>
+  <button mat-raised-button color="warn" (click)="onNoClick()">ออก</button>
+</mat-card>

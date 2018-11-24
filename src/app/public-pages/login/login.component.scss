@@ -1,18 +1,63 @@
 
+ .main-header {
+    background-image: url(/assets/img/intro.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+		height: 90%;
+	  opacity: 0.80;
+}
+
+.container{
+    padding-top: 65px;
+}
+
+@media (max-width: 414px){
+    .container{
+       padding-top: 20px;
+    }
+    
+  } 
+
 .login-container{
+    background-color: white;
     padding: 89px;
     max-width: 507px;
     margin:auto;
     display: flex;
     flex-direction: column;
-    border: 1px solid #009688cf;
-    box-shadow: 0px 6px 22px 7px #37ac9c;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 6px 22px 7px #afafaf9c;
     margin-top: 63px;
     > *{
         width: 100%;
     }
 
 }
+
+@media (max-width: 414px){
+    .login-container{
+        padding: 47px;
+        max-width: 507px;
+        margin:auto;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 6px 22px 7px #afafaf9c;
+        margin-top: 45px;
+        > *{
+            width: 100%;
+        }
+        .mat-form-field{
+            width: 7.7cm;
+        }
+    
+    }
+    
+    
+  } 
+
+  
 
 .text-right{
     text-align: right;
@@ -22,4 +67,12 @@
 }
 .text-center{
     text-align: center;
+}
+
+.mat-form-field{
+    width: 9cm;
+}
+
+button{
+    border-radius: 10px 10px 10px 10px;
 }

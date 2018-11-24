@@ -1,0 +1,128 @@
+<mat-card style="margin-top: 75px" class="hittt">
+    <mat-card-title class="headd text-center" style="font-size:35px;">
+        ออกรายงาน
+    </mat-card-title>
+    <mat-card>
+        <div class="row textcc">
+            
+            <div class="word">
+                <p><strong>ค้นหาโดยเลือกสายพันธุ์</strong></p>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <div class="padding">
+                <select class="styled-select" (change)="applyFilter(aaa)" ngModel="ทั้งหมด" #aaa>
+                    <option value="ทั้งหมด">ทั้งหมด</option>
+                    <option value="บราห์มัน">บราห์มัน</option>
+                    <option value="ชาร์โรเลส์">ชาร์โรเลส์</option>
+                    <option value="แองกัส">แองกัส</option>
+                </select>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="word">
+                <p><strong>ค้นหาโดยวันที่</strong></p>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field>
+                <input matInput (keyup)="datestart($event)" [matDatepicker]="picker" placeholder="เลือกวันที่เริ่มต้น" >
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+              </mat-form-field>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="word">
+                  <p><strong>ถึงวันที่</strong></p>
+              </div>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <mat-form-field>
+                <input matInput (keyup)="dateend($event)" [matDatepicker]="picker2" placeholder="เลือกวันที่สิ้นสุด">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2 startView="year" [startAt]="endDate"></mat-datepicker>
+              </mat-form-field>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+            <div>
+                <button mat-raised-button color="danger" (click)="searching()">
+                    &nbsp; &nbsp; ค้นหา
+                </button>
+            </div>
+
+        </div>
+        <br>
+
+        <div *ngIf="dataSource && dataView=='table' ;else dataView=='table' && progressload" class="scrolltable mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>
+                        <h3><strong>ลำดับที่</strong></h3>
+                    </th>
+                    <td mat-cell *matCellDef="let row;let key = index"> {{key+1}} </td>
+                </ng-container>
+
+                <!-- <ng-container matColumnDef="status">
+                            <th mat-header-cell *matHeaderCellDef><h3><strong>สถานะ</strong></h3>  </th>
+                            <td mat-cell *matCellDef="let row" > {{row.status}} </td>
+                        </ng-container> -->
+
+                <ng-container matColumnDef="breed">
+                    <th mat-header-cell *matHeaderCellDef>
+                        <h3><strong>พันธุ์โค</strong></h3>
+                    </th>
+                    <td mat-cell *matCellDef="let row"> {{row.breed}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="cattle_Id">
+                    <th mat-header-cell *matHeaderCellDef>
+                        <h3><strong>รหัสประจำตัวโค</strong></h3>
+                    </th>
+                    <td mat-cell *matCellDef="let row"> {{row.cattle_Id}} </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="cattle_Name">
+                    <th mat-header-cell *matHeaderCellDef>
+                        <h3><strong>ชื่อโค</strong></h3>
+                    </th>
+                    <td mat-cell *matCellDef="let row"> {{row.cattle_Name}} </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="membernameTH">
+                    <th mat-header-cell *matHeaderCellDef>
+                        <h3><strong>ชื่อผู้สั่งทำ</strong></h3>
+                    </th>
+                    <td mat-cell *matCellDef="let row"> {{row.membernameTH}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="status_payment">
+                    <th mat-header-cell *matHeaderCellDef>
+                        <h3><strong>สถานะการเงิน</strong></h3>
+                    </th>
+                    <td mat-cell *matCellDef="let row"> {{row.status_payment}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="date_of_delivery">
+                    <th mat-header-cell *matHeaderCellDef>
+                        <h3><strong>วันที่สั่งทำ</strong></h3>
+                    </th>
+                    <td mat-cell *matCellDef="let row"> {{row.date_of_delivery | date: 'dd-MMM-yyyy'}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>
+                        <h3><strong>เช็ครายละเอียด</strong></h3>
+                    </th>
+                    <td mat-cell *matCellDef="let row">
+                        <button mat-raised-button color="primary" (click)="openssDialog(row)">
+                            <mat-icon>search</mat-icon>&nbsp; &nbsp; เช็ครายละเอียด
+                        </button>
+                    </td>
+                </ng-container>
+
+                
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+
+    </mat-card>
+</mat-card>

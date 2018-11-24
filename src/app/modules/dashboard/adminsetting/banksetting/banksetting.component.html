@@ -1,0 +1,211 @@
+<mat-card>
+    <mat-card-title class="headd text-center" style="font-size:35px;">ตั้งค่าธนาคาร</mat-card-title>
+    <div class="row ">
+        <div class="col-md-4 cennn">
+            <mat-card  class="colore1">
+                <div class="row">
+                    <div class="col-md-3">
+                            <img src="/assets/icon/Thai Bank (2).png" alt="kasi" height="40" width="40">
+                    </div>
+                    <div class="col-md-9">
+                            <a><strong>&nbsp;ธนาคารกสิกรไทย</strong></a>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+        <div class="col-md-8">
+            <mat-card class="bootoom">
+                <mat-form-field>
+                    <mat-select (keyup)="onChange($event)" placeholder="เปิดการใช้งาน/ปิดการใช้งาน" [(ngModel)]="setting.bank"
+                        name="sex" type="text">
+                        <mat-option *ngFor="let role2 of role2s" [value]="role2.value2">{{role2.viewValue2}}</mat-option>
+                    </mat-select>
+                </mat-form-field>&nbsp;&nbsp;
+                <mat-form-field class="example-full-width">
+                        <mat-label>เพื่มบัญชีธนาคาร</mat-label>
+                        <input matInput (keyup)="onChange($event)" placeholder="กรอกบัญชีธนาคาร" [(ngModel)]="setting.bookbank"
+                            name="bookbank" type="text">
+                    </mat-form-field>&nbsp;&nbsp;
+
+                    <mat-form-field>
+                        <mat-select (keyup)="onChange($event)" placeholder="ประเภทบัญชี" [(ngModel)]="setting.bookbank_type" name="blood_type" type="text">
+                            <mat-option value="ฝากออมทรัพย์ ">ฝากออมทรัพย์ </mat-option>
+                            <mat-option value="ฝากประจำ">ฝากประจำ</mat-option>
+                            <mat-option value="ฝากกระแสรายวัน">ฝากกระแสรายวัน</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 cennn">
+            <mat-card class="colore1">
+                    <div class="row">
+                            <div class="col-md-3">
+                                    <img src="/assets/icon/Thai Bank (8).png" alt="scb" height="40" width="40">
+                            </div>
+                            <div class="col-md-9">
+                                    <a><strong>&nbsp;ธนาคารไทยพาณิชย์</strong></a>
+                            </div>
+                    </div>
+            </mat-card>
+        </div>
+        <div class="col-md-8">
+            <mat-card class="bootoom">
+                <mat-form-field>
+                    <mat-select (keyup)="onChange($event)" placeholder="เปิดการใช้งาน/ปิดการใช้งาน" [(ngModel)]="setting.bank1"
+                        name="sex" type="text">
+                        <mat-option *ngFor="let role2 of role2s" [value]="role2.value2">{{role2.viewValue2}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                &nbsp;&nbsp;
+                <mat-form-field class="example-full-width">
+                        <mat-label>เพื่มบัญชีธนาคาร</mat-label>
+                        <input matInput (keyup)="onChange($event)" placeholder="กรอกบัญชีธนาคาร" [(ngModel)]="setting.bookbank1"
+                            name="bookbank1" type="text">
+                    </mat-form-field>
+                    &nbsp;&nbsp;
+
+                    <mat-form-field>
+                        <mat-select (keyup)="onChange($event)" placeholder="ประเภทบัญชี" [(ngModel)]="setting.bookbank_type1" name="blood_type1" type="text">
+                            <mat-option value="ฝากออมทรัพย์ ">ฝากออมทรัพย์ </mat-option>
+                            <mat-option value="ฝากประจำ">ฝากประจำ</mat-option>
+                            <mat-option value="ฝากกระแสรายวัน">ฝากกระแสรายวัน</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 cennn">
+            <mat-card class="colore2">
+                    <div class="row">
+                            <div class="col-md-3">
+                                    <img src="/assets/icon/Thai Bank (1).png" alt="bangkok" height="40" width="40">
+                            </div>
+                            <div class="col-md-9">
+                                    <a><strong>ธนาคารกรุงเทพ</strong></a>
+                            </div>
+                    </div>                   
+            </mat-card>
+        </div>
+        <div class="col-md-8">
+            <mat-card class="bootoom">
+                <mat-form-field>
+                    <mat-select (keyup)="onChange($event)" placeholder="เปิดการใช้งาน/ปิดการใช้งาน" [(ngModel)]="setting.bank2"
+                        name="sex" type="text">
+                        <mat-option *ngFor="let role2 of role2s" [value]="role2.value2">{{role2.viewValue2}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                &nbsp;&nbsp;
+                <mat-form-field class="example-full-width">
+                        <mat-label>เพื่มบัญชีธนาคาร</mat-label>
+                        <input matInput (keyup)="onChange($event)" placeholder="กรอกบัญชีธนาคาร" [(ngModel)]="setting.bookbank2"
+                            name="bookbank2" type="text">
+                    </mat-form-field>
+                    &nbsp;&nbsp;
+
+                    <mat-form-field>
+                        <mat-select (keyup)="onChange($event)" placeholder="ประเภทบัญชี" [(ngModel)]="setting.bookbank_type2" name="blood_type2" type="text">
+                            <mat-option value="ฝากออมทรัพย์ ">ฝากออมทรัพย์ </mat-option>
+                            <mat-option value="ฝากประจำ">ฝากประจำ</mat-option>
+                            <mat-option value="ฝากกระแสรายวัน">ฝากกระแสรายวัน</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 cennn">
+            <mat-card class="colore3">
+                    <div class="row">
+                            <div class="col-md-3">
+                                    <img src="/assets/icon/Thai Bank (4).png" alt="icon-ktb" height="40" width="40">
+                            </div>
+                            <div class="col-md-9">
+                                    <a><strong>ธนาคารกรุงไทย</strong></a>
+                            </div>
+                    </div>       
+            </mat-card>
+        </div>
+        <div class="col-md-8">
+            <mat-card class="bootoom">
+                <mat-form-field>
+                    <mat-select (keyup)="onChange($event)" placeholder="เปิดการใช้งาน/ปิดการใช้งาน" [(ngModel)]="setting.bank3"
+                        name="sex" type="text">
+                        <mat-option *ngFor="let role2 of role2s" [value]="role2.value2">{{role2.viewValue2}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                &nbsp;&nbsp;
+                <mat-form-field class="example-full-width">
+                        <mat-label>เพื่มบัญชีธนาคาร</mat-label>
+                        <input matInput (keyup)="onChange($event)" placeholder="กรอกบัญชีธนาคาร" [(ngModel)]="setting.bookbank3"
+                            name="bookbank3" type="text">
+                    </mat-form-field>
+                    &nbsp;&nbsp;
+
+                    <mat-form-field>
+                        <mat-select (keyup)="onChange($event)" placeholder="ประเภทบัญชี" [(ngModel)]="setting.bookbank_type3" name="blood_type3" type="text">
+                            <mat-option value="ฝากออมทรัพย์ ">ฝากออมทรัพย์ </mat-option>
+                            <mat-option value="ฝากประจำ">ฝากประจำ</mat-option>
+                            <mat-option value="ฝากกระแสรายวัน">ฝากกระแสรายวัน</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 cennn">
+            <mat-card class="colore4">
+                    <div class="row">
+                            <div class="col-md-3">
+                                    <img src="/assets/icon/Thai Bank (14).png" alt="ks" height="40" width="40">
+                            </div>
+                            <div class="col-md-9">
+                                    <a><strong>ธนาคารกรุงศรี</strong></a>
+                            </div>
+                        </div>
+            </mat-card>
+        </div>
+        <div class="col-md-8">
+            <mat-card class="bootoom">
+                <mat-form-field>
+                    <mat-select (keyup)="onChange($event)" placeholder="เปิดการใช้งาน/ปิดการใช้งาน" [(ngModel)]="setting.bank4"
+                        name="sex" type="text">
+                        <mat-option *ngFor="let role2 of role2s" [value]="role2.value2">{{role2.viewValue2}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                &nbsp;&nbsp;
+                <mat-form-field class="example-full-width">
+                        <mat-label>เพื่มบัญชีธนาคาร</mat-label>
+                        <input matInput (keyup)="onChange($event)" placeholder="กรอกบัญชีธนาคาร" [(ngModel)]="setting.bookbank4"
+                            name="bookbank4" type="text">
+                    </mat-form-field>
+                    &nbsp;&nbsp;
+
+                    <mat-form-field>
+                        <mat-select (keyup)="onChange($event)" placeholder="ประเภทบัญชี" [(ngModel)]="setting.bookbank_type4" name="blood_type4" type="text">
+                            <mat-option value="ฝากออมทรัพย์ ">ฝากออมทรัพย์ </mat-option>
+                            <mat-option value="ฝากประจำ">ฝากประจำ</mat-option>
+                            <mat-option value="ฝากกระแสรายวัน">ฝากกระแสรายวัน</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+            </mat-card>
+        </div>
+    </div>
+
+
+    <div class="actionn text-center">
+        <div *ngIf="!setting.id;else updatesettingid ">
+            <button mat-raised-button (click)="saveSetting()" cdkFocusInitial color="success">บันทึก</button>
+        </div>
+        <ng-template #updatesettingid>
+            <button (click)="updateSetting()" mat-button cdkFocusInitial color="success">บันทึกการตั่งค่า</button>
+        </ng-template>
+    </div>
+
+</mat-card>

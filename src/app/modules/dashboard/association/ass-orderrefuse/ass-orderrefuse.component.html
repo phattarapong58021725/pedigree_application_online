@@ -1,0 +1,27 @@
+<mat-toolbar mat-dialog-title> ปฎิเสธการสั่งทำ </mat-toolbar>
+<div mat-dialog-content>
+    <mat-card class="col text-center">
+        <!-- ช่องแรก -->
+        <mat-form-field>
+            <mat-select (keyup)="onChange($event)" placeholder="เหตูผลที่ปฎิเสธการสั่งทำ" [(ngModel)]="confirmorder.status"
+                name="status" type="text">
+                <mat-option value="ปฎิเสธการสั่งทำ-ข้อมูลไม่ครบถ้วน">ข้อมูลไม่ครบถ้วน</mat-option>
+                <mat-option value="ปฎิเสธการสั่งทำ-ข้อมูลขาดความถูกต้อง">ข้อมูลขาดความถูกต้อง</mat-option>
+                <mat-option value="ปฎิเสธการสั่งทำ-ไม่มีภาพถ่าย">ไม่มีภาพถ่าย</mat-option>
+                <mat-option value="ปฎิเสธการสั่งทำ-ภาพถ่ายไม่ชัดเจน">ภาพถ่ายไม่ชัดเจน</mat-option>
+                <mat-option value="ปฎิเสธการสั่งทำ-รหัสพ่อพันธุ์โคไม่ใช่ของจริง">รหัสพ่อพันธุ์โคไม่ใช่ของจริง</mat-option>
+            </mat-select>
+            <mat-hint align="end">กดที่ลูกศรเพื่อเลือกเหตุผล^</mat-hint>
+        </mat-form-field>
+    </mat-card>
+</div>
+
+<!-- newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww-->
+<div mat-dialog-actions>
+    <div *ngIf="!confirmorder.id;else updateconfirmorderid ">
+        <button mat-raised-button (click)="saveConfirmorder()" [mat-dialog-close]="order" cdkFocusInitial color="success">สั่งทำ</button>
+    </div>
+    <ng-template #updateconfirmorderid>
+        <button (click)="updateConfirmorder()" mat-raised-button [mat-dialog-close]="order" cdkFocusInitial>ตกลง</button>
+    </ng-template>
+</div>

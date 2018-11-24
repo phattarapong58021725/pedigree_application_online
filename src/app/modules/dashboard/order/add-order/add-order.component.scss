@@ -1,0 +1,75 @@
+.headd{
+    background-color:#0076D6;
+    color: white;
+
+}
+
+.hedddd{
+    margin-bottom: 70px;
+}
+
+.main-card{
+    max-width: 1500px;
+    margin:auto;
+    display: flex;
+    border-radius: 10px 10px 10px 10px;
+    flex-direction: column;
+    > *{
+        width: 100%;
+        height: 70%;
+    }
+}
+
+mat-form-field {
+    width: 100%;
+    font-size: 10px;
+}
+
+@media (max-width: 414px){
+    .main-card{
+        margin: 15px;
+        display: flex;
+        border-radius: 10px 10px 10px 10px;
+        flex-direction: column;
+        > *{
+            width: 100%;
+            height: 70%;
+        }
+    }
+    .fff{
+        display: none;
+    }
+}
+
+mat-tab-group{
+    border-radius: 10px 10px 10px 10px;
+}
+
+.ddd{
+    margin: 20px;
+}
+
+.idcard{
+    height: 530px;
+}
+
+.regiter{
+    height: 530px;
+}
+
+.ssr3{
+    margin-bottom: 10px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-size: 20px;
+  }
+
+  button{
+      margin-top: 10px;
+  }
+
+  .eer1{
+    height: 510px;
+  margin-bottom: 15px;
+}

@@ -1,29 +1,66 @@
-<div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards;let key of index" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
-        
-        <mat-card-header>
-          <ng-template  #progressload>
-                <mat-progress-bar  class="progres-dashboard"  mode="indeterminate" ></mat-progress-bar>
-          </ng-template>
-          <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button (click)="removeCard(card.type)" mat-menu-item>Remove</button>
-            </mat-menu>
+<mat-card  class="main-card">
+  <div class="row">
+    <div class="col-md-4">
+          <mat-card class="photoo slide-in-left">
+              <mat-card-title class="headd text-center" style="font-size:35px;">
+                  โปรไฟล์
+              </mat-card-title>
+              <!-- ยังไม่ได้ใส่รูป -->
+              <mat-card class="phooo ">
+                  <img *ngIf="user" src="{{ user.downloadUrl }}" alt="" width="140" height="180">
+              </mat-card>
+              <br>
+              <br>
+              <br>
+              <p><strong>ขื่อภาษาอังกฤษ</strong><span class="blacee">{{ user.username }}</span></p>
+              <p><strong>ชื่อ-นามสกุล</strong><span class="blacee">{{ user.fname }} {{ user.lname }}</span></p>
+              <p><strong>รหัสบัตรประชาชน</strong><span class="blacee">{{ user.ID_card }}</span></p>
+              <p><strong>เพศ</strong><span class="blacee">{{ user.gender }}</span></p>
+              <p><strong>ที่อยู่</strong><span class="blacee"> {{ user.address }}</span></p>
+              <p><strong>เบอร์โทร</strong><span class="blacee">{{ user.mobile }}</span></p>
+              <p><strong>อีเมล</strong><span class="blacee">{{ user.email }}</span></p>
+             <p *ngFor = " let d of data ">{{d.name}}</p>
+          </mat-card>
+    </div>
+    <div class="col-md-8">
+      <mat-card class="dashdd slide-in-right">
+        <div class="grid-container">
+          <mat-card-title class="headd text-center " style="font-size:35px;">
+            แดชบอร์ด
           </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content" *ngIf="card.load;else progressload">
-          <div class="card-total">
-              <span>{{card.title}} {{card.total}}</span>
-          </div>
-        </mat-card-content>
+          <mat-grid-list cols="1" rowHeight="350px">
+            <mat-grid-tile *ngFor="let card of cards;let key of index" [colspan]="card.cols" [rowspan]="card.rows">
+              <mat-card class="dashboard-card">
+                <mat-card-header>
+                  <ng-template #progressload>
+                    <mat-progress-bar class="progres-dashboard" mode="indeterminate"></mat-progress-bar>
+                  </ng-template>
+                  <mat-card-title>
+                    {{card.title}}
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content" *ngIf="card.load;else progressload">
+                  <div class="card-total">
+                    <span>{{card.title}} : {{card.total}}</span>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+        <mat-card-title class="headd text-center " style="font-size:35px;">
+          เมนู
+        </mat-card-title>
+        <button mat-raised-button class="stongg1"   routerLink="/order">
+         
+      </button>
+      <button mat-raised-button class="stongg2"   routerLink="/follow">
+        
+      </button>
+      <button mat-raised-button class="stongg3"   routerLink="/report">
+         
+      </button>
       </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+    </div>
+  </div>
+</mat-card>

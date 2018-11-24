@@ -1,0 +1,116 @@
+<mat-card style="margin-top: 75px ">
+  <mat-card-title class="headd text-center" style="font-size:35px;">
+    โปรไฟล์
+  </mat-card-title>
+            <div class="row">
+              <div class="col-md-2 ">
+              
+              </div>
+              <div class="col-md-4">
+                  <mat-card class="photoo">
+                      <mat-card-title class="headd text-center" style="font-size:35px;">
+                        โปรไฟล์
+                      </mat-card-title>
+                      <!-- ยังไม่ได้ใส่รูป -->
+                      <mat-card class="phooo">
+                        <img *ngIf="user" src="{{ user.downloadUrl }}" alt="" width="140" height="180">
+                      </mat-card>
+                      <br>
+                      <p><strong>Name</strong><span class="blacee">{{ user.username }}</span></p>
+                      <p><strong>ชื่อ-นามสกุล</strong><span class="blacee">{{ user.fname }} {{ user.lname }}</span></p>
+                      <p><strong>รหัสบัตรประชาชน</strong><span class="blacee">{{ user.ID_card }}</span></p>
+                      <p><strong>เพศ</strong><span class="blacee"> {{ user.gender }}</span></p>
+                      <p><strong>ที่อยู่</strong><span class="blacee">{{ user.address }}</span></p>
+                      <p><strong>เบอร์โทร</strong><span class="blacee">{{ user.mobile }}</span></p>
+                      <p><strong>อีเมล</strong><span class="blacee"> {{ user.email }}</span></p>
+                    <div class="botrtonnn">
+                      <app-user-edit-from></app-user-edit-from>
+                    </div>
+                    </mat-card>
+               
+              </div>
+              <div class="col-md-4">
+                  <mat-card>
+                      <div class="dddd">
+                      <mat-card-title class="headd text-center" style="font-size:35px;">
+                          แก้ไขโปรไฟล์
+                        </mat-card-title>
+
+                        <div class="row">
+                          <div class="col-md-6">
+                              <mat-form-field appearance="outline">
+                                  <mat-label>ชื่อ</mat-label>
+                                  <input matInput (keyup)="onChange($event)" placeholder="กรอกชื่อ" [(ngModel)]="user.fname" name="fname" type="text">
+                                </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>รหัสบัตรประชาชน</mat-label>
+                                    <input matInput (keyup)="onChange($event)" placeholder="กรอกรหัสบัตรประชาชน" [(ngModel)]="user.ID_card" name="ID_card"
+                                      type="text">
+                                  </mat-form-field>
+                                  <mat-form-field appearance="outline">
+                                      <mat-label>ที่อยู่</mat-label>
+                                      <input matInput (keyup)="onChange($event)" placeholder="กรอกที่อยู่" [(ngModel)]="user.address" name="address"
+                                        type="text">
+                                    </mat-form-field>
+
+                          </div>
+                          <div class="col-md-6">
+                              <mat-form-field appearance="outline">
+                                  <mat-label>นามสกุล</mat-label>
+                                  <input matInput (keyup)="onChange($event)" placeholder="กรอกนามสกุล" [(ngModel)]="user.lname" name="lname"
+                                    type="text">
+                                </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>เพศ</mat-label>
+                                    <input matInput (keyup)="onChange($event)" placeholder="กรอกเพศ" [(ngModel)]="user.gender" name="gender"
+                                      type="text">
+                                  </mat-form-field>
+                                  <mat-form-field appearance="outline">
+                                      <mat-label>เบอร์โทร</mat-label>
+                                      <input matInput (keyup)="onChange($event)" placeholder="กรอกเบอร์โทร" [(ngModel)]="user.mobile" name="mobile"
+                                        type="text">
+                                    </mat-form-field>
+                            </div>
+                          </div>
+                  </div>
+                    <div class="actionn text-center">
+                      <div *ngIf="!user.id;else updateuserid ">
+                        <button mat-raised-button (click)="saveRecord()" cdkFocusInitial color="success">บันทึก</button>
+                      </div>
+                      <ng-template #updateuserid>
+                        <button (click)="updateuser()" mat-raised-button cdkFocusInitial color="success">แก้ไข</button>
+                      </ng-template>
+                  </div>
+                      <!-- <app-inputaddressmember></app-inputaddressmember> -->
+    
+            </mat-card>
+
+              </div>
+              <div class="col-md-2">
+                
+              </div>
+
+            </div>
+          </mat-card>
+
+
+
+
+
+
+  
+
+
+<!--<p><strong>AuthUser: </strong>{{ user | json }}}</p>-->
+<!--<p><strong>LocalStorage: </strong> {{ localStorageUser | json }}}</p>-->
+
+<!--&lt;!&ndash;<div class="container" *ngIf="imageUrl">&ndash;&gt;-->
+<!--<div class="container" *ngIf="user2">-->
+<!--<div class="row">-->
+<!--<div class="col-lg-8">-->
+
+<!--&lt;!&ndash;<img src="{{ imageUrl }}" alt="">&ndash;&gt;-->
+<!--<img src="{{ user2.downloadUrl }}" alt="">-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->

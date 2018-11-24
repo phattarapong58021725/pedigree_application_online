@@ -1,0 +1,43 @@
+export interface Setting {
+    id: string;
+    bank : boolean;
+    bank1:boolean;
+    bank2:boolean;
+    bank3:boolean;
+    bank4:boolean;
+    bookbank:string;
+    bookbank1:string;
+    bookbank2:string;
+    bookbank3:string;
+    bookbank4:string;
+    bookbank_type:string;
+    bookbank_type1:string;
+    bookbank_type2:string;
+    bookbank_type3:string;
+    bookbank_type4:string;
+    settingbank:string;
+
+    hidden           :boolean; 
+    hidden1           :boolean; 
+    hidden2          :boolean; 
+    hidden3          :boolean; 
+    hidden4           :boolean; 
+    hidden5         :boolean; 
+    hidecol           :boolean; 
+    hidecol1           :boolean; 
+    hidecol2          :boolean; 
+    hidecol3          :boolean; 
+    hidecol4          :boolean; 
+    hidecol5         :boolean; 
+    hidecol6        :boolean; 
+    hidecol7       :boolean; 
+    // hidden5          :boolean; 
+    // hidden6           :boolean; 
+    // hidden7          :boolean; 
+    // hidden8          :boolean; 
+    cattlename :    string;
+    cattlename1 :    string;
+    settingcattle:string;
+    selectcattle:string;
+    colors : string;
+}

@@ -1,0 +1,25 @@
+<mat-toolbar mat-dialog-title color="primary"> อัพเดตสถานะการสั่งทำ </mat-toolbar>
+<div mat-dialog-content>
+    <mat-card class="col text-center">
+        <!-- ช่องแรก -->
+        <mat-form-field>
+            <mat-select (keyup)="onChange($event)" placeholder="สถานะการสั่งทำ" [(ngModel)]="confirmorder.status" name="status"
+                type="text">
+                <mat-option value="รอดำเนินการ">รอดำเนินการ</mat-option>
+                <mat-option value="เริ่มดำเนินการ">อยู่ระหว่างดำเนินการ</mat-option>
+                <mat-option value="กำลังจัดส่ง">กำลังจัดส่ง</mat-option>
+            </mat-select>
+            <mat-hint align="end">กดที่ลูกศรเพื่อเลือกสถานะ</mat-hint>
+        </mat-form-field>
+    </mat-card>
+</div>
+
+<!-- newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww-->
+<div mat-dialog-actions>
+    <div *ngIf="!confirmorder.id;else updateconfirmorderid ">
+        <button mat-raised-button (click)="saveConfirmorder()" [mat-dialog-close]="order" cdkFocusInitial color="success">สั่งทำ</button>
+    </div>
+    <ng-template #updateconfirmorderid>
+        <button (click)="updateConfirmorder()" mat-button [mat-dialog-close]="order" cdkFocusInitial color="success">อัพเดต</button>
+    </ng-template>
+</div>

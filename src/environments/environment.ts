@@ -5,14 +5,20 @@
 export const environment = {
   production: false,
   firebase: {
-        apiKey: "Axxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-        authDomain: "appname.firebaseapp.com",
-        databaseURL: "https://appname.firebaseio.com",
-        projectId: "appname",
-        storageBucket: "",
-        messagingSenderId: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    apiKey: "AIzaSyDmKCJZYvoddpSYcE4LG96rnxrpqCti6Hs",
+    authDomain: "cattle-pedigree.firebaseapp.com",
+    databaseURL: "https://cattle-pedigree.firebaseio.com",
+    projectId: "cattle-pedigree",
+    storageBucket: "cattle-pedigree.appspot.com",
+    messagingSenderId: "284688337531"
   }
 };
+
+export const api = {
+  url: 'http://localhost:4000'
+};
+
+
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can

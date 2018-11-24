@@ -1,148 +1,207 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import {Validators} from '@angular/forms';
-import { Observable, of } from 'rxjs';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
 
-import { auth } from 'firebase/app';
-import {MatSnackBar} from '@angular/material';
+import { User } from '../../interfaces/dashboard/user';
+import swal from 'sweetalert2'
+import { UserService } from '../../services/dashboard/user.service';
+import { NotificationService } from './../../shared/notification.service';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+import { Observable, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
+import { AngularFirestore } from 'angularfire2/firestore';
+
+import { MatSnackBar } from '@angular/material';
 import { SnackBarMessageComponent } from '../../helpers/snack-bar-message/snack-bar-message.component'
 
-import {User} from '../../interfaces/dashboard/user'
-
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthService {
-    durationSback:number = 4000
-    user:User
-    auth:any
-  constructor(
-      public af:AngularFireAuth,
-      private db:AngularFireDatabase,
-      private router: Router,
-      public snackBar: MatSnackBar
-  ) { 
+    durationSback: number = 4000
+    private user: Observable<firebase.User>;
+    private userDetails: firebase.User = null;
+    user$: Observable<any>;  // change to Interface User(import), and make observable with user$  (cms project)
 
-    }
-    canActivate(): Observable<boolean> {
-        return Observable.call(this.af)
-          .take(1)
-          .map(state => !!state)
-          .do(authenticated => {
-            if(!authenticated){
-                this.router.navigate([ '/login' ])
+    constructor(
+        private afAuth: AngularFireAuth,
+        private afs: AngularFirestore,
+        private router: Router,
+        private userService: UserService,
+        private notifier: NotificationService,
+        public snackBar: MatSnackBar
+    ) {
+        // Get Current Auth User
+        this.user = afAuth.authState;
+        this.user.subscribe(
+            (user) => {
+                if (user) {
+                    this.userDetails = user;
+                } else {
+                    this.userDetails = null;
+                }
             }
-        })
+        );
+        // for Google Switch User
+        /*
+        this.user$ = afAuth.authState.pipe(switchMap(user => {
+          if (user) {
+            return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+          } else {
+            return of(null);  // Angular6 without Observable.of, just of with import {of}
+          }
+        }));
+        */
+
+        this.user$ = afAuth.authState.pipe(map(user => {
+            if (user) {
+                // debugger;
+                return this.afs.doc(`users/${user.uid}`).valueChanges();
+            } else {
+                return of(null);  // Angular6 without Observable.of, just of with import {of}
+            }
+        }));
     }
-    /**
-     * Return id like lDXixxciCIe5ww0Ptyjtyjny1Z
-     */
+
     getUserId(){
-        return  this.af.auth.currentUser.uid
+        return  this.afAuth.auth.currentUser.uid
     }
     getCurrentAuth(){
-        return this.af
+        return this.afAuth
     }
     getCurrentUser(){
-        return this.af.authState
+        return this.afAuth.authState
     }
     getCurrentUserId(callback:Function){
-        this.af.authState.subscribe(auth=>{
+        this.afAuth.authState.subscribe(auth=>{
             callback(auth.uid)
         })
     }
-    loginWithCredetentials(user){
-        if(user.email=="" || user.password==""){
-            this.showSnack({message:"Email or password is empty",type:"error"})
-        }else{
-            this.af.auth.signInWithEmailAndPassword(user.email,user.password).then(success=>{
-                this.user = success
-                this.showSnack({message:"Logged succesfully.",type:"success"})
+    getAuthUser() {
+        return this.userDetails;
+    }
+    isLoggedIn() {
+        if (this.userDetails == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    // 1. Register
+    createUserInFirebaseAuthListEmailVerified(email, password, username,fname,lname,gender,ID_card,address,tel,mobile,fax,other_email,member_ID,farm_Name,farm_Logo,farm_address,line,member_type) {
+        console.log('vor createUserInFirebaseAuthList->' + email + ' / ' + password);
+
+        const actionCodeSettings = {
+            url: 'http://localhost:4200/login',
+            handleCodeInApp: true
+        };
+
+        this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+            .then(userData => {
+                console.log(userData);
+                userData.user.sendEmailVerification(actionCodeSettings);
+
+                const message = `Eine Verification EMail wurde an ${email} geschickt. Bitte prüfen Sie Ihr Posteingang und bestätigen Sie die Registrationsprüfung.`;
+                swal('สมัครสมาชิกสำเร็จ', 'กรุณายืนยันข้อมูลอีเมล', 'success')
+
+                const user: User = {
+                    id: userData.user.uid,
+                    username: username,
+                    line: line,
+                    member_type:member_type,
+                    fname:fname,
+                    lname:lname,
+                    gender:gender,
+                    ID_card:ID_card,
+                    address:address,
+                    tel:tel,
+                    mobile:mobile,
+                    fax:fax,
+                    other_email:other_email,
+                    member_ID: member_ID = "รอการกรอก",           
+                    farm_Name :farm_Name,         
+                    farm_Logo:farm_Logo ,      
+                    farm_address:farm_address,    
+                    email: email,
+                    anonymous: userData.user.isAnonymous,
+                    roles: {
+                        authuser: true,
+                        admin: false,
+                        superadmin: false
+                    },
+                    registrationDate: new Date(),
+                };
+                this.userService.setUserToLocalStorage(user);
+                this.userService.setUser(user)
+                    .then(() => {
+                        this.afAuth.auth.signOut();  // erst wenn der Benutzer erfasst wird aus Firebase ausloggen!
+                    })
+                    .catch(err => console.log(err));
+            })
+            .catch(error => {
+                console.log(error);
+                swal('สมัครสมาชิกล้มเหลว', 'กรุณาเช็คข้อมูลให้ครบถ้วน', 'error');
+            });
+    }
+
+    // 2. Login
+    loginWithUserPassword(email, password) {
+        console.log('vor auth.EmailAuthProvider.credential->' + email + ' / ' + password);
+        const credential = firebase.auth.EmailAuthProvider.credential(email, password);
+        this.router.navigate([ '/dashboard' ]);
+        return this.afAuth.auth.signInWithEmailAndPassword(email, password);
+        
+        
+    }
+    // 3. Reset PW
+    resetPassword(email) {
+
+        const actionCodeSettings = {
+            url: 'http://localhost:4200/login',
+            // This must be true.
+            handleCodeInApp: true
+        };
+
+        this.afAuth.auth.sendPasswordResetEmail(email, actionCodeSettings)
+            .then(data => {
+                console.log('Passwort Reset Mail send Successful');
+                console.log(data);
+                swal('เรียบร้อย', 'ส่งอีเมลการตั้งค่ารหัสผ่านใหม่เรียบร้อยแล้ว', 'success')
                 
-                var this_ = this;
-                setTimeout(function () { this_.router.navigate(['/dashboard']) }, 50);
-            }).catch(error=>{
-                error.type="error"
-                this.showSnack(error)
-            });
-        }
+                setTimeout(() => {
+                    this.router.navigate(['/login']);
+                }, 2000);
 
+
+            }).catch(
+                error => {
+                    console.log(error);
+                    swal('รีเช็ตพาสเวร์สล้มเหลว', 'กรุณาใส่อีเมลครบถ้วน', 'error');
+                });
     }
-    loginWithGoogle(){
-        this.af.auth.signInWithPopup(new auth.GoogleAuthProvider()).then(success=>{
-            this.user = success.user
-            this.saveUser()
-            this.showSnack({message:"Logged succesfully.",type:"success"})
-            var this_ = this;
-            setTimeout(function () { this_.router.navigate(['/dashboard']) }, 50);
-        }).catch(error=>{
-            this.showSnack(error)
-        })
+
+    // 4. Logout
+    logout() {
+        this.afAuth.auth.signOut()
+            .then((res) => this.router.navigate(['login']));
     }
-    logOutFromGoogle(){
-        this.af.auth.signOut()
-    }
-    singUpCustom(userData){
+     /**
+       * 
+       * @param data The data to pass to the snackKomponent
+       * @param time the duration
+       */
+      showSnack(data: any, time: number = null) {
 
-        if(userData.email=="" || userData.password==""){
-            this.showSnack({message:"Email or password is empty",type:"error"})
-        }else{
-            this.af.auth.createUserWithEmailAndPassword(userData.email,userData.password).then(success=>{
-                this.user = success.user
-
-                this.db.object('/users/'+this.user.uid).set({
-                    name    :userData.name,
-                    subname :userData.subname,
-                    displayName:this.user.displayName,
-                    email   :this.user.email,
-                    uid     :this.user.uid,
-                    photoURL:this.user.photoURL
-                }).then(function(success){
-                    if(success){
-                        this.showSnack({message:"SingUp succesfully.",type:"success"})
-                        this.router.navigate(['/login'])
-                    }
-                })
-
-            }).catch(error=>{
-                error.type="error"
-                this.showSnack(error)
-            });
-        }
-    }
-    saveUser(){
-        this.db.object('/users/'+this.user.uid).set({
-            name    :"",
-            subname :"",
-            displayName:this.user.displayName,
-            email   :this.user.email,
-            uid     :this.user.uid,
-            photoURL:this.user.photoURL
-
-        }).then(function(success){
-            if(success){
-                this.showSnack({message:"User Logged Successfully",type:'success'})
-            }
-        })
-    }
-    
-    /**
-     * 
-     * @param data The data to pass to the snackKomponent
-     * @param time the duration
-     */
-    showSnack(data:any,time:number=null){
-
-        if(time){
+        if (time) {
             this.durationSback = time
         }
         this.snackBar.openFromComponent(SnackBarMessageComponent, {
-            duration:this.durationSback,
+            duration: this.durationSback,
             data: data,
-            horizontalPosition:'right',
-            verticalPosition:'top'
+            horizontalPosition: 'right',
+            verticalPosition: 'top'
         });
     }
 }

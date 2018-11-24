@@ -1,0 +1,225 @@
+<mat-card>
+    <mat-card-title class="headd text-center" style="font-size:35px;">ตั้งค่าโค</mat-card-title>
+    <div class="row">
+        <div class="col-md-6">
+            <mat-card>
+                <mat-card-title class="headd text-center" style="font-size:35px;">ตั้งค่าสีโค</mat-card-title>
+
+                 <div class="row cennn">
+                        <div class="col-md-4">
+                            <mat-card>
+                                <a><strong>{{setting.colors}}</strong></a>
+                            </mat-card>
+                        </div>
+                        <div class="col-md-8">
+                            <mat-card  class="bootoom">
+                                <mat-form-field>
+                                    <mat-select (keyup)="onChange($event)" placeholder="เปิดการใช้งาน/ปิดการใช้งาน" [(ngModel)]="setting.hidecol" name="sex" type="text">
+                                        <mat-option *ngFor="let role2 of role2s" [value]="role2.value2">{{role2.viewValue2}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </mat-card>
+                        </div>
+                    </div>
+
+                    <div class="row cennn">
+                            <div class="col-md-4">
+                                <mat-card class="colore1">
+                                    <a><strong>{{setting.colors1}}</strong></a>
+                                </mat-card>
+                            </div>
+                            <div class="col-md-8">
+                                <mat-card  class="bootoom">
+                                    <mat-form-field>
+                                        <mat-select (keyup)="onChange($event)" placeholder="เปิดการใช้งาน/ปิดการใช้งาน" [(ngModel)]="setting.hidecol1" name="sex" type="text">
+                                            <mat-option *ngFor="let role2 of role2s" [value]="role2.value2">{{role2.viewValue2}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </mat-card>
+                            </div>
+                        </div>
+
+                        <div class="row cennn">
+                                <div class="col-md-4">
+                                    <mat-card class="colore2">
+                                        <a><strong>{{setting.colors2}}</strong></a>
+                                    </mat-card>
+                                </div>
+                                <div class="col-md-8">
+                                    <mat-card  class="bootoom">
+                                        <mat-form-field>
+                                            <mat-select (keyup)="onChange($event)" placeholder="เปิดการใช้งาน/ปิดการใช้งาน" [(ngModel)]="setting.hidecol2" name="sex" type="text">
+                                                <mat-option *ngFor="let role2 of role2s" [value]="role2.value2">{{role2.viewValue2}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </mat-card>
+                                </div>
+                            </div>
+
+                            <div class="row cennn">
+                                    <div class="col-md-4">
+                                        <mat-card  class="colore3">
+                                            <a><strong>{{setting.colors3}}</strong></a>
+                                        </mat-card>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <mat-card  class="bootoom">
+                                            <mat-form-field>
+                                                <mat-select (keyup)="onChange($event)" placeholder="เปิดการใช้งาน/ปิดการใช้งาน" [(ngModel)]="setting.hidecol3" name="sex" type="text">
+                                                    <mat-option *ngFor="let role2 of role2s" [value]="role2.value2">{{role2.viewValue2}}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </mat-card>
+                                    </div>
+                                </div>
+
+                                <div class="row cennn">
+                                        <div class="col-md-4">
+                                            <mat-card class="colore4">
+                                                <a><strong>{{setting.colors4}}</strong></a>
+                                            </mat-card>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <mat-card  class="bootoom">
+                                                <mat-form-field>
+                                                    <mat-select (keyup)="onChange($event)" placeholder="เปิดการใช้งาน/ปิดการใช้งาน" [(ngModel)]="setting.hidecol4" name="sex" type="text">
+                                                        <mat-option *ngFor="let role2 of role2s" [value]="role2.value2">{{role2.viewValue2}}</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </mat-card>
+                                        </div>
+                                    </div>
+                    
+
+                    <div class="actionn text-center">
+                            <div *ngIf="!setting.id;else updatesettingid ">
+                                <button mat-raised-button (click)="saveSetting()" cdkFocusInitial color="success">บันทึก</button>
+                            </div>
+                            <ng-template #updatesettingid>
+                                <button (click)="updateSetting()" mat-button cdkFocusInitial color="success">บันทึกการตั่งค่า</button>
+                            </ng-template>
+                    </div>
+
+            </mat-card>
+        </div>
+        <div class="col-md-6">
+            <mat-card>
+                <mat-card-title class="headd text-center" style="font-size:35px;">ตั้งค่าสายพันธุ์โค</mat-card-title>
+                <div class="orderlist">
+                    
+                <div class="row cennn">
+                    <div class="col-md-4">
+                        <mat-card class="inggg">
+                            <a><strong>{{setting.cattlename}}</strong></a>
+                        </mat-card>
+                    </div>
+                    <div class="col-md-8">
+                        <mat-card  class="bootoom">
+                            <mat-form-field>
+                                <mat-select (keyup)="onChange($event)" placeholder="เปิดการสั่งทำ/ปิดการสั่งทำ" [(ngModel)]="setting.hidden" name="sex" type="text">
+                                    <mat-option *ngFor="let role1 of role1s" [value]="role1.value">{{role1.viewValue}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </mat-card>
+                    </div>
+                </div>
+
+                <div class="row cennn">
+                        <div class="col-md-4">
+                            <mat-card  class="inggg1">
+                                <a><strong>{{setting.cattlename1}}</strong></a>
+                            </mat-card>
+                        </div>
+                        <div class="col-md-8">
+                            <mat-card  class="bootoom">
+                                <mat-form-field>
+                                    <mat-select (keyup)="onChange($event)" placeholder="เปิดการสั่งทำ/ปิดการสั่งทำ" [(ngModel)]="setting.hidden1" name="sex" type="text">
+                                        <mat-option *ngFor="let role1 of role1s" [value]="role1.value">{{role1.viewValue}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </mat-card>
+                        </div>
+                    </div> 
+
+                    <div class="row cennn">
+                            <div class="col-md-4">
+                                <mat-card class="inggg2">
+                                    <a><strong>{{setting.cattlename2}}</strong></a>
+                                </mat-card>
+                            </div>
+                            <div class="col-md-8">
+                                <mat-card  class="bootoom">
+                                    <mat-form-field>
+                                        <mat-select (keyup)="onChange($event)" placeholder="เปิดการสั่งทำ/ปิดการสั่งทำ" [(ngModel)]="setting.hidden2" name="sex" type="text">
+                                            <mat-option *ngFor="let role1 of role1s" [value]="role1.value">{{role1.viewValue}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </mat-card>
+                            </div>
+                        </div> 
+
+                        <div class="row cennn">
+                                <div class="col-md-4">
+                                    <mat-card class="inggg3">
+                                        <a><strong>{{setting.cattlename3}}</strong></a>
+                                    </mat-card>
+                                </div>
+                                <div class="col-md-8">
+                                    <mat-card  class="bootoom">
+                                        <mat-form-field>
+                                            <mat-select (keyup)="onChange($event)" placeholder="เปิดการสั่งทำ/ปิดการสั่งทำ" [(ngModel)]="setting.hidden3" name="sex" type="text">
+                                                <mat-option *ngFor="let role1 of role1s" [value]="role1.value">{{role1.viewValue}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </mat-card>
+                                </div>
+                            </div> 
+
+                            <div class="row cennn">
+                                    <div class="col-md-4">
+                                        <mat-card class="inggg4">
+                                            <a><strong>{{setting.cattlename4}}</strong></a>
+                                        </mat-card>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <mat-card  class="bootoom">
+                                            <mat-form-field>
+                                                <mat-select (keyup)="onChange($event)" placeholder="เปิดการสั่งทำ/ปิดการสั่งทำ" [(ngModel)]="setting.hidden4" name="sex" type="text">
+                                                    <mat-option *ngFor="let role1 of role1s" [value]="role1.value">{{role1.viewValue}}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </mat-card>
+                                    </div>
+                                </div> 
+
+                                <div class="row cennn">
+                                        <div class="col-md-4">
+                                            <mat-card class="inggg5">
+                                                <a><strong>{{setting.cattlename5}}</strong></a>
+                                            </mat-card>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <mat-card  class="bootoom">
+                                                <mat-form-field>
+                                                    <mat-select (keyup)="onChange($event)" placeholder="เปิดการสั่งทำ/ปิดการสั่งทำ" [(ngModel)]="setting.hidden5" name="sex" type="text">
+                                                        <mat-option *ngFor="let role1 of role1s" [value]="role1.value">{{role1.viewValue}}</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </mat-card>
+                                        </div>
+                                    </div> 
+
+                                </div>
+                <div class="actionn text-center">
+                    <div *ngIf="!setting.id;else updatesettingid ">
+                        <button mat-raised-button (click)="saveSetting()" cdkFocusInitial color="success">บันทึก</button>
+                    </div>
+                    <ng-template #updatesettingid>
+                        <button (click)="updateSetting()" mat-button cdkFocusInitial color="success">บันทึกการตั่งค่า</button>
+                    </ng-template>
+                </div>
+
+            </mat-card>
+        </div>
+    </div>
+</mat-card>

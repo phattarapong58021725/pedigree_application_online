@@ -1,0 +1,92 @@
+<mat-card class="derder" style="margin-top: 75px">
+    <mat-card-title class="headd text-center" style="font-size:35px;">
+        รายการรอการสั่งทำ
+    </mat-card-title>
+    <div class="row">
+        <div class="col-md-3">
+            <mat-card-title class="headd1 text-center" style="font-size:35px;">
+                เลือกที่อยู่ที่ฟาร์มและที่อยู่จัดส่ง &nbsp; <button mat-icon-button class="addd" (click)="openDialog()"><mat-icon>add_box</mat-icon></button>  
+            </mat-card-title>
+            <div class="memberlist">
+            <div *ngIf="dataSource && dataView=='card';else  dataView=='card' && progressload">
+                <div *ngFor="let address of dataSource.filteredData">
+                    <mat-card-content>
+                        <mat-card class="ssssss" matRipple  tabindex="1" (click)="getItems(address)">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p><strong>ชื่อ</strong> : {{address.membernameTH}}</p>
+                                    <p><strong>name</strong> : {{address.membernameEN}}</p>
+                                    <p><strong>ที่อยู่ฟาร์ม</strong> : {{address.member_address}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><strong>เลนที่สมาชิก</strong> : {{address.member_ID}}</p>
+                                    <p><strong>เบอร์โทร</strong> : {{address.member_tel}}</p>
+                                    <p><strong>ชื่อฟาร์ม</strong> : {{address.farm_Name}}</p>
+                                    <p><strong>โลโก้ฟาร์ม</strong> : {{address.farm_Logo}}</p>
+                                </div>
+                            </div>
+                        </mat-card>
+                    </mat-card-content>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-8">
+                    <app-wait-confirm></app-wait-confirm>
+                </div>
+                <div class="col-md-4">
+                    <mat-card class="hightt">
+                        <mat-card-title class="headd2 text-center" style="font-size:35px;">
+                            สรุปรายการสั่งทำใบพันธุ์ประวัติ
+                        </mat-card-title>
+                        <p  style="font-size:25px; text-align: center;">
+                               ที่อยู่ฟาร์มและที่อยู่จัดส่ง
+                        </p>
+
+                        <div *ngIf="check">
+                        <mat-card  class="hittt">
+                        
+                        </mat-card>
+                        </div>
+
+
+                        <div *ngIf="!check">
+                            <mat-card-content>
+                                <mat-card class="ssssss" matRipple class="rerer" tabindex="1" (click)="getItems(address)" >
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><strong>ชื่อ</strong> : {{test.membernameTH}}</p>
+                                            <p><strong>name</strong> : {{test.membernameEN}}</p>
+                                            <p><strong>ที่อยู่ฟาร์ม</strong> : {{test.member_address}}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><strong>เลนที่สมาชิก</strong> : {{test.member_ID}}</p>
+                                            <p><strong>เบอร์โทร</strong> : {{test.member_tel}}</p>
+                                            <p><strong>ชื่อฟาร์ม</strong> : {{test.farm_Name}}</p>
+                                            <p><strong>โลโก้ฟาร์ม</strong> : {{test.farm_Logo}}</p>
+                                        </div>
+                                    </div>
+    
+                                </mat-card>
+                            </mat-card-content>
+                        </div>
+                        <p  style="font-size:25px; text-align: center;">
+                                รายละเอียดคำสั่งทำ
+                         </p>
+                         <p><strong>รายการสั่งทำทั้งหมด</strong> <span class="blacee">{{length}} รายการ</span></p>
+                         <p><strong>พันธุ์แท้</strong> <span class="blacee">{{blood_type_1}}  ตัว</span></p>
+                         <p><strong>พันธุ์ผสม</strong> <span class="blacee">{{blood_type_2}}  ตัว</span></p>
+                         <hr>
+                         <p align="center"><button mat-raised-button (click)="nextpage() "  cdkFocusInitial color="success">ชำระเงิน</button></p>
+                         <div class="boorrr text-center">
+                         
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-card>
+<!-- deleteOrderall() ||  -->

@@ -1,0 +1,69 @@
+<mat-card>
+    <mat-card-title class="headd text-center" style="font-size:35px;">
+        รายละเอียดโค
+    </mat-card-title>
+    <div class="hedr">
+        <div class="row">
+            <div class="col-md-6">
+                <mat-card>
+                <img src = "{{test}}"   height="cover" width="740" >
+                </mat-card>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <mat-card>
+                            <mat-card-title class="headd text-center" style="font-size:35px;">
+                                ข้อมูลโค
+                            </mat-card-title>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- <p><strong>สายพันธุ์โค</strong> : {{order.breed}}</p> -->
+                                    <p><strong>หมายเลขประจำตัวโค</strong> : {{record.cattle_Id}}</p>
+                                    <p><strong>ชื่อโค</strong> : {{record.cattle_Name}}</p>
+                                    <p><strong>วัน/เดือน/ปีเกิด</strong> : {{record.date_of_birth | date}}</p>
+                                    <p><strong>เพศ</strong> : {{record.sex}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><strong>สี</strong> : {{record.color}}</p>
+                                    <p><strong>การผสมพันธุ์</strong> : {{record.breeding}}</p>
+                                </div>
+                            </div>
+                        </mat-card>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-card class="oooo">
+                                    <mat-card-title class="headd text-center" style="font-size:35px;">
+                                        ข้อมูลแรกเกิดและหย่านม
+                                    </mat-card-title>
+                                    <p><strong>น้ำหนักแรกเกิด</strong> : {{record.birth_weight}}</p>
+                                    <p><strong>รอบอกแรกเกิด</strong> : {{record.birth_chert}}</p>
+                                    <p><strong>วันอย่านม</strong> : {{record.date_of_wean | date}}</p>
+                                    <p><strong>น้ำหนักวันอย่านม</strong> : {{record.wean_weight}}</p>
+                                    <p><strong>รอบอกวันอย่านม</strong> : {{record.wean_chert}}</p>
+                                    <p><strong>ความสูงสะโพก</strong> : {{record.hip_height}}</p>
+                                </mat-card>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-card class="oooo">
+                                    <mat-card-title class="headd text-center" style="font-size:35px;">
+                                        ข้อมูลพ่อและแม่พันธุ์
+                                    </mat-card-title>
+                                    <p><strong>ชื่อพ่อพันธุ์</strong> : {{record.fa_Name}}</p>
+                                    <p><strong>เลขทะเบียนพ่อพันธุ์</strong> : {{record.fa_Id}}</p>
+                                    <p><strong>ชื่อแม่พันธุ์</strong> : {{record.ma_Name}}</p>
+                                    <p><strong>เลขทะเบียนแม่พันธุ์</strong> : {{record.ma_Id}}</p>
+                                    <p><strong>ผู้บำรุงพันธุ์</strong> : {{record.breeder}}</p>
+                                    <p><strong>เจ้าของโค</strong> : {{record.owner_name}}</p>
+                                </mat-card>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button mat-raised-button color="warn" (click)="onNoClick()">ออก</button>
+</mat-card>

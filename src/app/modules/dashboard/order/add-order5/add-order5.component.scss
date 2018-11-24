@@ -1,0 +1,123 @@
+.mat-success{
+    background-color: #0bb9a9;
+    color: white;
+}
+.mat-dialog-title{
+    text-align: center;
+    font-family: FCLamoon;
+    font-size: 50px;
+    padding-top: 15px;
+}
+.mat-dialog-content{
+    text-align: center;
+}
+.mat-dialog-actions{
+    padding-left: 20cm;
+}
+@media (max-width: 414px){
+    .mat-dialog-actions{
+        padding-left: 3cm;
+       padding-top:2cm;
+       margin: 0%;
+    }
+}
+
+mat-card {    
+    max-width: 100%;    
+    margin: 0em auto;    
+    align-items: center;
+} 
+.col{
+  margin: 7px;
+  padding: 48px;
+}
+
+button {
+   height: 1.6cm;
+   width: 3.5cm;
+   margin: -1cm;
+   
+}
+
+.mat-form-field.mat-form-field {
+    width:  8.8cm ;
+    height: 1cm;
+    padding: 25px;
+  }
+
+  @media (max-width: 414px){
+    .mat-form-field.mat-form-field {
+        width: 6cm ;
+        height: 1cm;
+        padding-left: 0px;
+      }
+      .mat-dialog-title{
+        text-align: center;
+        font-family: FCLamoon;
+        font-size: 30px;
+        padding-top: 15px;
+    }
+  } 
+
+  @media (max-width: 375px){
+    .mat-form-field.mat-form-field {
+        width: 6.8cm ;
+        height: 1cm;
+        padding-left: 0cm;
+
+      }
+  } 
+
+
+  @media (max-width: 360px){
+    .mat-form-field.mat-form-field {
+        width: 6cm ;
+        height: 1cm;
+        padding-left: 0cm;
+
+      }
+  } 
+
+
+
+.eer2{
+    height: 650px;
+    margin-bottom: 15px;
+}
+
+.eer3{
+    height: 650px;
+    margin-bottom: 15px;
+}
+
+.eer4{
+    height: 650px;
+    margin-bottom: 15px;
+}
+.eer1{
+    height: 510px;
+  margin-bottom: 15px;
+}
+
+.eer9{
+   
+    margin-bottom: 15px;
+}
+
+
+
+
+
+.headd{
+    background-color:#0076D6;
+    color: white;
+}
+.cennn{
+    text-align: center;
+}
+
+.boooo{
+    position:absolute;
+    bottom: 5%;
+    left: 30%;
+  }

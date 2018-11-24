@@ -1,0 +1,141 @@
+<mat-card>
+<mat-card-title class="headd text-center" style="font-size:35px;"> 
+    แก้ไขใบพันธุ์ประวัติโค 
+</mat-card-title>
+       <div class="row text-center">
+            <div class="col-md-4">
+                <mat-card class="eer text-center">
+                        <mat-card-title class="headd text-center">
+                                กรอกรายละเอียดโค
+                            </mat-card-title>
+                            <mat-form-field appearance="outline">
+                                <mat-label>ชื่อโค</mat-label>
+                                <input matInput (keyup)="onChange($event)" placeholder="กรอกชื่อโค" [(ngModel)]="record.cattle_Name"
+                                    name="cattle_Name" type="text">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>หมายเลขประจำตัวโค</mat-label>
+                                <input matInput (keyup)="onChange($event)" placeholder="กรอกหมายเลขประจำตัวโค" [(ngModel)]="record.cattle_Id"
+                                    name="cattle_Id" type="text">
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput (keyup)="onChange($event)" [matDatepicker]="picker" placeholder="วัน/เดือน/ปีเกิด"
+                                    [(ngModel)]="record.date_of_birth" name="date_of_birth">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-select (keyup)="onChange($event)" placeholder="เพศ" [(ngModel)]="record.sex" name="sex" type="text">
+                                    <mat-option value="Bull">เพศผู้</mat-option>
+                                    <mat-option value="Cow">เพศเมีย</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-select (keyup)="onChange($event)" placeholder="สี" [(ngModel)]="record.color" name="color"
+                                    type="text">
+                                    <mat-option value="red">สีแดง</mat-option>
+                                    <mat-option value="gray">สีเทา</mat-option>
+                                    <mat-option value="white">สีขาว</mat-option>
+                                    <mat-option value="black">สีดำ</mat-option>
+                                    <mat-option value="blue">สีน้ำเงิน</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>การผสมพันธุ์</mat-label>
+                                <input matInput (keyup)="onChange($event)" placeholder="กรอกการผสมพันธุ์" [(ngModel)]="record.breeding"
+                                    name="breeding" type="text">
+                        </mat-form-field>
+                </mat-card>
+            </div>
+            <div class="col-md-4">
+                <mat-card class="eer text-center">
+                        <mat-card-title class="headd text-center">
+                                กรอกข้อมูลแรกเกิดและหย่านม
+                            </mat-card-title>
+                            <mat-form-field appearance="outline">
+                                <mat-label>น้ำหนักแรกเกิด</mat-label>
+                                <input matInput (keyup)="onChange($event)" placeholder="กรอกน้ำหนักแรกเกิด" [(ngModel)]="record.birth_weight"
+                                    name="birth_weight" type="text">
+                                <span matSuffix>.กก</span>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>รอบอกแรกเกิด</mat-label>
+                                <input matInput (keyup)="onChange($event)" placeholder="กรอกรอบอก" [(ngModel)]="record.birth_chert"
+                                    name="birth_chert" type="text">
+                                <span matSuffix>.ซม</span>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput (keyup)="onChange($event)" [matDatepicker]="picker2" placeholder="วันหย่านม"
+                                    [(ngModel)]="record.date_of_wean" name="date_of_wean">
+                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                <mat-datepicker #picker2></mat-datepicker>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>น้ำหนักวันหย่านม</mat-label>
+                                <input matInput (keyup)="onChange($event)" placeholder="กรอกน้ำหนักวันหย่านม" [(ngModel)]="record.wean_weight"
+                                    name="wean_weight" type="text">
+                                <span matSuffix>.กก</span>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>รอบออกวันหย่านม</mat-label>
+                                <input matInput (keyup)="onChange($event)" placeholder="กรอกรอบออกวันหย่านม" [(ngModel)]="record.wean_chert"
+                                    name="wean_chert" type="text">
+                                <span matSuffix>.ซม</span>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>ความสูงสะโพก(สำหรับโคที่มีอายุเกิน 1 ปีขั้นไป)</mat-label>
+                                <input matInput (keyup)="onChange($event)" placeholder="กรอกความสูงสะโพก" [(ngModel)]="record.hip_height"
+                                    name="hip_height" type="text">
+                                <span matSuffix>.ซม</span>
+                        </mat-form-field>
+                </mat-card>
+            </div>
+            <div class="col-md-4">
+                <mat-card class="eer text-center">
+                        <mat-card-title class="headd text-center">
+                                กรอกรายละเอียดพ่อและแม่พันธุ์
+                            </mat-card-title>
+                            <mat-form-field class="fill1" appearance="outline">
+                                <mat-label>ชื่อพ่อพันธุ์</mat-label>
+                                <input matInput (keyup)="onChange($event)" placeholder="กรอกชื่อพ่อพันธุ์" [(ngModel)]="record.fa_Name"
+                                    name="fa_Name" type="text">
+                            </mat-form-field>
+                            <mat-form-field class="fill1" appearance="outline">
+                                <mat-label>เลขทะเบียนพ่อโค</mat-label>
+                                <input matInput (keyup)="onChange($event)" placeholder="กรอกเลขทะเบียนพ่อโค" [(ngModel)]="record.fa_Id"
+                                    name="fa_Id" type="text">
+                            </mat-form-field><br>
+                            <mat-form-field class="fill1" appearance="outline">
+                                <mat-label>ชื่อแม่พันธุ์</mat-label>
+                                <input matInput (keyup)="onChange($event)" placeholder="กรอกชื่อแม่พันธุ์" [(ngModel)]="record.ma_Name"
+                                    name="ma_Name" type="text">
+                            </mat-form-field>
+                            <mat-form-field class="fill1" appearance="outline">
+                                <mat-label>เลขทะเบียนแม่โค</mat-label>
+                                <input matInput (keyup)="onChange($event)" placeholder="กรอกเลขทะเบียนแม่โค" [(ngModel)]="record.ma_Id"
+                                    name="ma_Id" type="text">
+                            </mat-form-field><br>
+                            <mat-form-field appearance="outline">
+                                <mat-label>ผู้บำรุงพันธุ์(ฺBreeder)</mat-label>
+                                <input matInput (keyup)="onChange($event)" placeholder="กรอกผู้บำรุงพันธุ์" [(ngModel)]="record.breeder"
+                                    name="breeder" type="text">
+                            </mat-form-field><br>
+                            <mat-form-field appearance="outline">
+                                <mat-label>เจ้าของโค(ฺOwner)</mat-label>
+                                <input matInput (keyup)="onChange($event)" placeholder="กรอกเจ้าของโค" [(ngModel)]="record.owner_name"
+                                    name="owner_name" type="text">
+                        </mat-form-field>
+                </mat-card>
+            </div>
+       </div>
+<div class="actionn text-center">
+    <div *ngIf="!record.id;else updaterecordid ">
+        <button mat-raised-button (click)="saveRecord()"  cdkFocusInitial color="success">บันทึก</button>
+    </div>
+    <ng-template #updaterecordid>
+        <button (click)="updateRecord()" mat-button  cdkFocusInitial color="success">แก้ไข</button>
+        &nbsp;&nbsp;
+        <button mat-raised-button  color="warn" (click)="onNoClick()">ออก</button>
+    </ng-template>
+</div>
+</mat-card>

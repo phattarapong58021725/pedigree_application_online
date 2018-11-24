@@ -1,0 +1,69 @@
+<mat-card class="blasss" style="margin-top: 75px">
+    <div class="row">
+        <div class="col-md-4">
+                <mat-card class="photoo">
+                        <mat-card-title class="headd text-center" style="font-size:35px;">
+                            โปรไฟล์(เจ้าหน้าที่)
+                        </mat-card-title>
+                        <!-- ยังไม่ได้ใส่รูป -->
+                        <mat-card class="phooo">
+                            <img *ngIf="user" src="{{ user.downloadUrl }}" alt="" width="140" height="180">
+                        </mat-card>
+                        <br>
+                        <p><strong>ชื่อ-นามสกุล</strong><span class="blacee">{{ user.fname }} {{ user.lname }}</span></p>
+                        <p><strong>รหัสบัตรประชาชน</strong><span class="blacee">{{ user.ID_card }}</span></p>
+                        <p><strong>เพศ</strong><span class="blacee">{{ user.gender }}</span></p>
+                        <p><strong>ที่อยู่</strong><span class="blacee">{{ user.address }}</span></p>
+                        <p><strong>เบอร์โทร</strong><span class="blacee">{{ user.mobile }}</span></p>
+                        <p><strong>อีเมล</strong><span class="blacee">{{ user.email }}</span></p>
+                    </mat-card>
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-12">
+                    <mat-card>
+                        <mat-card-title class="headd text-center" style="font-size:35px;">
+                            DASHBORD(OFFICER)
+                        </mat-card-title>
+                        <mat-grid-list cols="1" rowHeight="380px">
+                            <mat-grid-tile *ngFor="let card of cards;let key of index" [colspan]="card.cols" [rowspan]="card.rows">
+                                <mat-card class="dashboard-card">
+
+                                    <mat-card-header>
+                                        <ng-template #progressload>
+                                            <mat-progress-bar class="progres-dashboard" mode="indeterminate"></mat-progress-bar>
+                                        </ng-template>
+                                        <mat-card-title>
+                                            {{card.title}}
+                                        </mat-card-title>
+                                    </mat-card-header>
+                                    <mat-card-content class="dashboard-card-content" *ngIf="card.load;else progressload">
+                                        <div class="card-total">
+                                            <span>{{card.title}} : {{card.total}}</span>
+                                        </div>
+                                    </mat-card-content>
+                                </mat-card>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-card>
+                </div>
+                <div class="col-md-12">
+                    <mat-card class="bottr">
+                        <mat-card-title class="headd text-center" style="font-size:35px;">
+                            เมนู
+                        </mat-card-title>
+                        <button mat-raised-button color="accent" routerLink="/association">
+                            <p class="boot">ตรวจสอบออเดอร์สั่งทำ</p>
+                        </button>
+                        <button mat-raised-button color="accent" routerLink="/associationreport">
+                            <p class="boot">ออกรายงาน</p>
+                        </button>
+                        <button mat-raised-button color="accent" routerLink="/messageofficer">
+                            <p class="boot">ข้อความจากลูกค้า</p>
+                        </button>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-card>

@@ -2,3 +2,16 @@
     width: 100%;
     text-align: center;
 }
+
+
+
+@media (max-width: 414px){
+    .fooo{
+        visibility: hidden;
+    }
+
+}
+
+.navbar{
+    background-color: #003171;
+}

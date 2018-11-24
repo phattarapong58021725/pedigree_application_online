@@ -1,0 +1,59 @@
+<mat-card style="margin-top: 75px">
+    <mat-card-title class="headd text-center" style="font-size:35px;">
+      ข้อความจากลูกค้า
+    </mat-card-title>
+    <div class="row">
+      <div class="col-md-4">
+          <mat-card>
+              <mat-card-title class="headd text-center" style="font-size:35px;">
+                  ข้อความ
+                </mat-card-title>
+                <mat-card>
+                    <img  src="/assets/img/sack.jpg" alt="sack" width="60" height="60"> &nbsp; <a>พิสิษฐ์ เสนาวงศ์</a> <span class="spannn">12.00 </span>
+                   
+                </mat-card>
+
+
+          </mat-card>
+      </div>
+      <div class="col-md-8">
+          <mat-card>
+              <mat-card-title class="headd text-center" style="font-size:35px;">
+                  ข้อความ
+                </mat-card-title>
+                <div class="chatscoo">
+                        <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                    <div class="reeeee">
+                                <app-chatdetail></app-chatdetail>
+                                </div>
+                                <app-chatdetailofficer></app-chatdetailofficer>
+                              </div>
+                        </div>
+                        </div>
+                      </div>
+                <div class="row">
+                  <div class="col-md-10">
+                      <div class="buttom">
+                          <mat-form-field appearance="fill">
+                              <mat-label>ข้อความ</mat-label>
+                              <input matInput (keyup.enter)="onChange($event) || saveChatadmin()" placeholder="กรอกข้อความ" [(ngModel)]="chatadmin.inchatadmin" name="inchat" type="text">
+                          </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="buttom2">
+                            <div *ngIf="!chatadmin.id;else updatechatadminid ">
+                                <button mat-raised-button (click)="saveChatadmin()" cdkFocusInitial color="success">ส่ง</button>
+                            </div>
+                            <ng-template #updatechatadminid>
+                                <button (click)="updateChatadmin()" mat-button cdkFocusInitial color="success">แก้ไข</button>
+                            </ng-template>
+                        </div>
+                      </div>
+                </div>
+          </mat-card>
+      </div>
+    </div>
+  </mat-card>

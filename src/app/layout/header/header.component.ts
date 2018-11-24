@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input, ViewChild, OnInit  } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Auth } from '../../interfaces/dashboard/auth'
-import { AuthService } from '../../services/dashboard/auth.service'
-import { Router } from '@angular/router';
+import { User } from '../../interfaces/dashboard/user';
+import { AuthService } from '../../services/dashboard/auth.service';
+import { UserService } from '../../services/dashboard/user.service';
+import { StorageService } from './../../shared/storage.service';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { Router, RouterModule } from '@angular/router';
+import swal from 'sweetalert2'
+import { OrderService } from '../../services/dashboard/order.service';
 
 @Component({
   selector: 'navigation-header',
@@ -12,21 +17,88 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-
+length = 0;;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
-    app_title="Engine Personal Bank"
-
+    @Input()
+    user: any
     constructor(
         private breakpointObserver: BreakpointObserver,
-        public authService:AuthService,
-        private router: Router
-    ) {
- 
+        public authService: AuthService,
+        private router: Router,
+        private afs: AngularFirestore,
+        private userService: UserService,
+        private storageService: StorageService,
+        private orderService: OrderService
+    ) { }
+
+    user2;
+  imageUrl;
+  localStorageUser;
+
+   
+    ngOnInit() {
+      this.orderService.getListOrders().subscribe(data=>{
+        this.length = data.length;
+      });
+        this.user = this.authService.getAuthUser();
+        this.getUser();
+
+        this.authService.getCurrentUser().subscribe(auth => {
+            if (!auth) {
+                this.router.navigate(['/login'])
+            }
+            console.log(auth)
+            this.user = auth
+        })
     }
-    signOut(){
-        this.authService.logOutFromGoogle()
+    goTo(name) {
+        this.router.navigateByUrl(name)
     }
+
+    getUser() {
+        console.log(this.user.uid);
+        this.localStorageUser = this.userService.getProfileFromLocalStorage();
+        return this.userService.getUser(this.user.uid)
+          .subscribe(data => {
+            console.log('singleUser: ', data);
+            this.user = data;
+          });
+      }
+
+      updateuser() {
+        this.userService.updateUser(this.user)
+        swal('แก้ไขสำเร็จ', '', 'success')
+      }
+    
+      onChange(event) {
+        let value = event.target.value
+        let name = event.target.name
+        this.user[name] = value
+      }
+    
+    
+      onFileSelection($event) {
+        this.storageService.upload($event)
+          .then((uploadSnapshot: firebase.storage.UploadTaskSnapshot) => {
+            uploadSnapshot.ref.getDownloadURL().then((downloadURL) => {
+              console.log(downloadURL);
+              this.imageUrl = downloadURL;
+              const data: User = {
+                id: this.user.uid,
+                downloadUrl: downloadURL,
+              };
+              this.userService.setUser(data);
+    
+            });
+    
+          });
+    
+      }
+
+  signOut() {
+    this.authService.logout()
+  }
 }

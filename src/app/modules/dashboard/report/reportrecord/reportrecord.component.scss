@@ -1,0 +1,35 @@
+
+table.mat-table {
+    width: 100%;
+    text-align: center;
+}
+
+.mat-header-cell{
+    text-align: center;
+    font-size: 20px;
+}
+.mat-cell{
+    font-size: 15px;
+}
+
+.headd{
+    background: linear-gradient(60deg, #40a7ec, #1bd8cf);
+    color: white;
+}
+.mat-form-field{
+    width: 7cm;
+}
+
+
+
+
+  .orderlist{
+    height: 500px;
+    overflow-y: scroll;
+}
+
+mat-card{
+    border-radius: 10px 10px 10px 10px;
+}
+
+

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "engine-personal-bank": {
+    "pedigree-online": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/engine-personal-bank",
+            "outputPath": "dist/pedigree-online",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -57,18 +57,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "engine-personal-bank:build"
+            "browserTarget": "pedigree-online:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "engine-personal-bank:build:production"
+              "browserTarget": "pedigree-online:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "engine-personal-bank:build"
+            "browserTarget": "pedigree-online:build"
           }
         },
         "test": {
@@ -105,7 +105,7 @@
         }
       }
     },
-    "engine-personal-bank-e2e": {
+    "pedigree-online-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -113,7 +113,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "engine-personal-bank:serve"
+            "devServerTarget": "pedigree-online:serve"
           }
         },
         "lint": {
@@ -128,5 +128,5 @@
       }
     }
   },
-  "defaultProject": "engine-personal-bank"
+  "defaultProject": "pedigree-online"
 }

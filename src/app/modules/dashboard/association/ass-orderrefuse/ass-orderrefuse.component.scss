@@ -1,0 +1,87 @@
+.mat-success{
+    background-color: #0bb9a9;
+    color: white;
+}
+.mat-dialog-title{
+    text-align: center;
+    font-family: FCLamoon;
+    font-size: 50px;
+    padding-top: 15px;
+    background-color: red;
+    color: white;
+}
+.mat-raised-button{
+    background-color: #ff9900;
+    color: white;
+}
+.mat-dialog-content{
+    text-align: center;
+}
+.mat-dialog-actions{
+    padding-left: 5cm;
+    padding-top: 3cm;
+
+}
+@media (max-width: 414px){
+    .mat-dialog-actions{
+        padding-left: 3cm;
+       padding-top:2cm;
+       margin: 0%;
+    }
+}
+
+mat-card {    
+    max-width: 100%;    
+    margin: 0em auto;    
+    align-items: center;
+} 
+.col{
+  margin: 7px;
+  padding: 48px;
+}
+
+button {
+   height: 1.6cm;
+   width: 3.5cm;
+   margin: -1cm;
+   
+}
+
+.mat-form-field.mat-form-field {
+    width:  9cm ;
+    height: 1cm;
+    padding: 25px;
+  }
+
+  @media (max-width: 414px){
+    .mat-form-field.mat-form-field {
+        width: 6cm ;
+        height: 1cm;
+        padding-left: 0px;
+      }
+      .mat-dialog-title{
+        text-align: center;
+        font-family: FCLamoon;
+        font-size: 30px;
+        padding-top: 15px;
+    }
+  } 
+
+  @media (max-width: 375px){
+    .mat-form-field.mat-form-field {
+        width: 6.8cm ;
+        height: 1cm;
+        padding-left: 0cm;
+
+      }
+  } 
+
+
+  @media (max-width: 360px){
+    .mat-form-field.mat-form-field {
+        width: 6cm ;
+        height: 1cm;
+        padding-left: 0cm;
+
+      }
+  } 

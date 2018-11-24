@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../services/dashboard/auth.service'
 import{Router} from '@angular/router'
 
 @Component({
@@ -8,12 +9,20 @@ import{Router} from '@angular/router'
 })
 export class HeaderPublicComponent implements OnInit {
 
-  constructor(public router:Router) { }
+  constructor(
+    public router:Router,
+    public authService: AuthService
+  ) { }
 
   ngOnInit() {
   }
+
   navigate(url){
     this.router.navigateByUrl(url)
   }
-
+ 
+  get currentRoute(): string {
+    return this.router.url;
+    
+  }
 }

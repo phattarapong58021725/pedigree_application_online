@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-title class="headd text-center" style="font-size:35px;">เพิ่มสายพันธุ์โค</mat-card-title>
+<div class="cennn">
+<mat-form-field appearance="outline">
+  <mat-label>เพิ่มสีโค</mat-label>
+  <input matInput (keyup)="onChange($event)" placeholder="กรอกสีโค" [(ngModel)]="setting.colors"
+      name="colors" type="text">
+</mat-form-field>
+
+</div>
+
+<div class="actionn text-center">
+  <div *ngIf="setting.id;else updatesettingid ">
+      <button mat-raised-button (click)="savecolors()" cdkFocusInitial color="success">บันทึก</button>
+  </div>
+  <ng-template #updatesettingid>
+      <button (click)="updatecolors()" mat-button cdkFocusInitial color="success">แก้ไข</button>
+  </ng-template>
+</div>
+</mat-card>
