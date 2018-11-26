@@ -49,7 +49,7 @@
                         </div>
                     
                         <div class="form-group row">
-                          <label for="username" class="col-sm-3 col-form-label">ชื่อภาษาอังกฤษ</label>
+                          <label for="username1" class="col-sm-3 col-form-label">ชื่อภาษาอังกฤษ</label>
                           <div class="col-sm-9">
                             <input class="form-control" name="username" id="username" ngModel required placeholder="ชื่อภาษาอังกฤษ">
                           </div>
@@ -185,19 +185,43 @@
                     </select>
             </mat-card>
             <br>
-              <mat-card class="regiter">
-             
-                </mat-card>            
+            <div class="row">
+              <div class="col-md-6">
+                  <mat-card class="regiter">
+                    <div class="upladess">
+                      <div class="upload-btn-wrapper">
+                          <button class="btn">คลิกเพื่ออัพโหลดสลิปธนาคารของท่าน</button>
+                          <input type="file" name="myfile1" />
+                      </div>
+                    </div>
+                    </mat-card>  
+              </div>
+              <div class="col-md-6">
+                  <mat-card class="regiter">
+                      <mat-card-title class="headd text-center" style="font-size:25px;">
+                          คำอธิบายประเภทสมาชิกสมาคม
+                        </mat-card-title>
+                    <p><strong>สมาชิกสามัญตลอดชีพ</strong>   คือ เกษตรกรผู้เลี้ยงโค ค่าลงทะเบียน 100 บาท และค่าบำรุงสมาคม 500 บาท รวม 600 บาท</p>
+                    <p><strong>สมาชิกวิสามัญตลอดชีพ</strong>  คือ ผู้สนใจทั่วไป          ค่าลงทะเบียน 100 บาท และค่าบำรุงสมาคม 500 บาท รวม 600 บาท</p>
+                    </mat-card>                   
+                </div>
+            </div>
+                      
               </div>
           <div class="col-md-6">
             <p class="text-center">อัพโหลดรูปบัตรประชาชน</p>
             <mat-card class="idcard">
-
+                <div class="upladess">
+                <div class="upload-btn-wrapper">
+                    <button class="btn">คลิกเพื่ออัพโหลดรูปบัตรประชาชน</button>
+                    <input type="file" name="myfile2" />
+                </div>
+              </div>
             </mat-card>
           </div>     
         </div>
         <br>
-          <div  class="text-center">
+          <div  class="sser text-center">
           <button type="submit" mat-raised-button color="primary">ตกลง</button>
           </div>
           </div>

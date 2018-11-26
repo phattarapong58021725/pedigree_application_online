@@ -51,11 +51,11 @@
         <div class="col-md-3">
             <div *ngIf="dataSource && dataView=='card'">
                 <div *ngFor="let setting of dataSource.filteredData">
-                    <button class="stongg slide-in-bottom" mat-raised-button  (click)="openDialog(setting)"><a>{{setting.selectcattle}}</a></button>
+                    <button class="stongg " mat-raised-button  (click)="openDialog(setting)"><a>{{setting.selectcattle}}</a></button>
                 </div>
             </div><br>
-            <button mat-raised-button  class="stongg2 slide-in-bottom1"  routerLink="/member"  ><a>รายการสั่งทำ</a></button>
-            <button mat-raised-button  class="stongg1 slide-in-bottom2"  routerLink="/follow"  ><a>ติดตามสถานะ</a></button>
+            <button mat-raised-button  class="stongg2 "  routerLink="/member"  ><a>รายการสั่งทำ</a></button>
+            <button mat-raised-button  class="stongg1 "  routerLink="/follow"  ><a>ติดตามสถานะ</a></button>
         </div>
     </div>
 </mat-card>
